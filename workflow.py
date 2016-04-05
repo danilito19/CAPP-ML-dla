@@ -31,32 +31,35 @@ def visualize(data):
     data.hist()
     pylab.show()
 
-def model_data(data):
-    pass
+def model_data(data, X, y):
+    
+    model = LinearRegression()
+    model.fit(X, y)
+
 
 def evaluate_model(data):
     pass
 
+def go(file_name):
+    '''
+    run file
+    '''
+    df = read_data(file_name)
+    print_statistics(df)
+    visualize(df)
+
+    X = ['Age', 'GPA', 'Days_missed']
+    y = 'Gender'
+    model_data(data, X, y)
+    #create train / test data
 
 if __name__=="__main__":
-    instructions = '''Usage: python workflow.py filename '''
-
+    instructions = '''Usage: python workflow.py filename'''
 
     if(len(sys.argv) != 2):
         print(instructions)
         sys.exit()
 
-
     file_name = sys.argv[1]
+    go(file_name)
 
-    try:
-        df = read_data(file_name)
-        print_statistics(df)
-        visualize(df)
-        #create train / test data
-
-    #if output to file: output all to file
-
-        
-    except Exception, e:
-        print('Error: ', e)

@@ -1,0 +1,57 @@
+3
+****column names:   ['ID' 'First_name' 'Last_name' 'State' 'Gender' 'Age' 'GPA' 'Days_missed'
+ 'Graduated']
+****top of the data:     ID First_name Last_name           State  Gender   Age  GPA  Days_missed  \
+0   1      Wayne      Boyd         Florida    Male  19.0  NaN          9.0   
+1   2        Ann  Matthews    Pennsylvania  Female  18.0  3.0          NaN   
+2   3     George  Matthews           Texas     NaN  17.0  NaN         10.0   
+3   4      Jerry     Ramos      California    Male  15.0  2.0         28.0   
+4   5     Andrea   Carroll  North Carolina  Female   NaN  2.0         29.0   
+
+  Graduated  
+0       Yes  
+1       Yes  
+2       Yes  
+3        No  
+4        No  
+****dataframe shape:  (1000, 9)
+****statistics:                   ID First_name Last_name  State  Gender         Age  \
+count   1000.000000       1000      1000    884     774  771.000000   
+unique          NaN        200       244     49       2         NaN   
+top             NaN        Amy      Ross  Texas  Female         NaN   
+freq            NaN         12        13     97     398         NaN   
+mean     500.500000        NaN       NaN    NaN     NaN   16.996109   
+std      288.819436        NaN       NaN    NaN     NaN    1.458067   
+min        1.000000        NaN       NaN    NaN     NaN   15.000000   
+25%      250.750000        NaN       NaN    NaN     NaN   16.000000   
+50%      500.500000        NaN       NaN    NaN     NaN   17.000000   
+75%      750.250000        NaN       NaN    NaN     NaN   18.000000   
+max     1000.000000        NaN       NaN    NaN     NaN   19.000000   
+
+               GPA  Days_missed Graduated  
+count   779.000000   808.000000      1000  
+unique         NaN          NaN         2  
+top            NaN          NaN       Yes  
+freq           NaN          NaN       593  
+mean      2.988447    18.011139       NaN  
+std       0.818249     9.629371       NaN  
+min       2.000000     2.000000       NaN  
+25%       2.000000     9.000000       NaN  
+50%       3.000000    18.000000       NaN  
+75%       4.000000    27.000000       NaN  
+max       4.000000    34.000000       NaN  
+****sum of null values by column:  ID               0
+First_name       0
+Last_name        0
+State          116
+Gender         226
+Age            229
+GPA            221
+Days_missed    192
+Graduated        0
+dtype: int64
+****correlation matrix:                     ID       Age       GPA  Days_missed
+ID           1.000000  0.018181  0.057870    -0.039756
+Age          0.018181  1.000000 -0.001423     0.018946
+GPA          0.057870 -0.001423  1.000000    -0.013214
+Days_missed -0.039756  0.018946 -0.013214     1.000000
