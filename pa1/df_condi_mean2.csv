@@ -1,0 +1,1001 @@
+,ID,First_name,Last_name,State,Gender,Graduated,ID,Age,GPA,Days_missed
+0,1,Wayne,Boyd,Florida,Male,Yes,1,19.0,3.49645390070922,9.0
+1,2,Ann,Matthews,Pennsylvania,Female,Yes,2,18.0,3.0,17.185185185185187
+2,3,George,Matthews,Texas,,Yes,3,17.0,,10.0
+3,4,Jerry,Ramos,California,Male,No,4,15.0,2.0,28.0
+4,5,Andrea,Carroll,North Carolina,Female,No,5,17.008849557522122,2.0,29.0
+5,6,Annie,Fisher,Virginia,Female,Yes,6,19.0,3.51006711409396,5.0
+6,7,Stephanie,Barnes,Oklahoma,Female,No,7,17.008849557522122,3.0,20.0
+7,8,Janet,Jenkins,Louisiana,Female,Yes,8,15.0,4.0,20.0
+8,9,Betty,Miller,,,No,9,17.0,3.0,23.0
+9,10,Henry,Woods,Colorado,Male,Yes,10,19.0,4.0,14.0
+10,11,Stephanie,Harris,,Female,Yes,11,16.859375,3.51006711409396,3.0
+11,12,Samuel,George,Georgia,Male,No,12,15.0,3.0,13.0
+12,13,Todd,Phillips,Indiana,,Yes,13,,2.0,3.0
+13,14,Nicholas,Rice,Florida,Male,No,14,17.218487394957982,2.0,8.0
+14,15,Jacqueline,Wallace,New York,Female,No,15,17.008849557522122,2.0,26.0
+15,16,Phyllis,Burton,Texas,Female,No,16,16.0,3.0,18.0
+16,17,Sandra,Hudson,,Female,Yes,17,16.859375,4.0,20.0
+17,18,Karen,Bell,Mississippi,Female,No,18,17.0,3.0,10.0
+18,19,Lori,Patterson,New York,Female,Yes,19,18.0,3.51006711409396,17.0
+19,20,Ann,Banks,Pennsylvania,Female,Yes,20,15.0,4.0,18.0
+20,21,Sara,Williams,,Female,Yes,21,17.0,3.51006711409396,24.0
+21,22,Benjamin,Butler,Connecticut,Male,Yes,22,18.0,3.49645390070922,4.0
+22,23,Lori,Lopez,,Female,No,23,19.0,3.0,15.0
+23,24,Ryan,Porter,New York,Male,No,24,15.0,2.0,10.0
+24,25,Anthony,Burke,Texas,,No,25,16.0,2.0,14.0
+25,26,Katherine,Rodriguez,Arizona,Female,Yes,26,16.0,4.0,3.0
+26,27,Harry,Larson,,Male,No,27,18.0,3.0,15.0
+27,28,Joyce,Patterson,Virginia,Female,Yes,28,18.0,4.0,22.0
+28,29,Jonathan,Wells,Indiana,Male,Yes,29,19.0,3.49645390070922,20.0
+29,30,Jesse,Hamilton,New York,Male,No,30,19.0,2.0,27.0
+30,31,Susan,Evans,South Dakota,Female,No,31,15.0,2.0,29.0
+31,32,Kathleen,Lee,New Jersey,,No,32,17.0,3.0,13.0
+32,33,Steven,Cooper,Arizona,Male,Yes,33,18.0,3.49645390070922,20.0
+33,34,Shawn,Fisher,Indiana,Male,No,34,17.218487394957982,2.0,17.0
+34,35,Arthur,Campbell,Texas,Male,Yes,35,16.96987951807229,3.49645390070922,32.0
+35,36,Harold,Flores,New Mexico,Male,Yes,36,19.0,3.49645390070922,15.26896551724138
+36,37,Bonnie,Parker,California,Female,No,37,19.0,2.0,29.0
+37,38,Doris,Holmes,California,Female,Yes,38,15.0,4.0,20.0
+38,39,Anna,Bradley,Virginia,Female,Yes,39,19.0,4.0,17.185185185185187
+39,40,Ruth,Lopez,Ohio,,Yes,40,16.0,4.0,
+40,41,Wanda,Richards,Texas,Female,Yes,41,16.0,3.51006711409396,7.0
+41,42,Jimmy,Kelly,Louisiana,Male,Yes,42,16.96987951807229,3.49645390070922,10.0
+42,43,Marilyn,Marshall,New York,Female,Yes,43,16.859375,3.51006711409396,17.185185185185187
+43,44,Donna,Jackson,Ohio,Female,Yes,44,19.0,4.0,18.0
+44,45,Judy,Boyd,Louisiana,Female,Yes,45,18.0,3.51006711409396,33.0
+45,46,Irene,Johnson,Utah,Female,No,46,18.0,2.0,9.0
+46,47,Frank,Ortiz,Florida,,Yes,47,16.0,,8.0
+47,48,Mark,Wheeler,California,,No,48,16.0,2.0,13.0
+48,49,Aaron,Reed,Washington,,No,49,,2.0,21.0
+49,50,Christina,Little,Ohio,Female,Yes,50,15.0,3.51006711409396,21.0
+50,51,Diana,Ross,Texas,Female,Yes,51,16.859375,2.0,17.185185185185187
+51,52,William,Cooper,New York,Male,Yes,52,18.0,2.0,15.26896551724138
+52,53,Joseph,Nichols,Virginia,Male,No,53,19.0,3.0,34.0
+53,54,Stephen,Bailey,Connecticut,,Yes,54,19.0,4.0,16.0
+54,55,Harold,Powell,Tennessee,Male,Yes,55,16.96987951807229,3.49645390070922,31.0
+55,56,Kathleen,Cole,Texas,Female,No,56,16.0,3.0,5.0
+56,57,Marilyn,Simmons,South Carolina,Female,Yes,57,18.0,4.0,33.0
+57,58,Susan,Roberts,Pennsylvania,Female,Yes,58,17.0,3.0,17.185185185185187
+58,59,Samuel,Elliott,Connecticut,Male,No,59,15.0,2.0,9.0
+59,60,Irene,Collins,District of Columbia,Female,No,60,17.008849557522122,3.0,9.0
+60,61,Joshua,Lewis,Missouri,Male,Yes,61,18.0,3.49645390070922,15.0
+61,62,Raymond,Hudson,Nebraska,Male,Yes,62,15.0,4.0,7.0
+62,63,Philip,Gomez,Florida,Male,No,63,18.0,2.0,7.0
+63,64,Christopher,Wood,Arizona,Male,No,64,17.218487394957982,3.0,32.0
+64,65,Sarah,Garcia,Florida,Female,No,65,19.0,2.0,6.0
+65,66,Antonio,Palmer,Missouri,Male,No,66,17.218487394957982,2.0,12.0
+66,67,Ralph,Jacobs,Florida,Male,No,67,18.0,2.0,14.0
+67,68,Patrick,Washington,Virginia,,Yes,68,,,4.0
+68,69,Henry,Howell,California,Male,No,69,17.218487394957982,3.0,14.0
+69,70,Lois,Chavez,Minnesota,,Yes,70,17.0,4.0,19.0
+70,71,Melissa,Dunn,Massachusetts,Female,Yes,71,17.0,3.0,17.185185185185187
+71,72,Eric,Roberts,California,Male,Yes,72,18.0,3.49645390070922,32.0
+72,73,Timothy,Smith,California,Male,Yes,73,15.0,4.0,20.0
+73,74,Kelly,Wheeler,New York,Female,No,74,16.0,3.0,25.0
+74,75,Earl,Watson,Texas,Male,Yes,75,16.96987951807229,3.49645390070922,6.0
+75,76,Fred,Owens,Texas,Male,Yes,76,16.96987951807229,4.0,15.26896551724138
+76,77,Emily,Frazier,California,,Yes,77,16.0,3.0,3.0
+77,78,James,Fowler,District of Columbia,Male,No,78,17.0,3.0,15.0
+78,79,Johnny,Myers,Georgia,Male,Yes,79,16.96987951807229,3.49645390070922,16.0
+79,80,Melissa,Harper,Kansas,,No,80,17.0,3.0,27.0
+80,81,Joan,Reyes,California,Female,No,81,19.0,3.0,4.0
+81,82,Keith,Sanchez,New York,Male,Yes,82,15.0,2.0,15.26896551724138
+82,83,Craig,Tucker,Indiana,Male,No,83,19.0,2.0,33.0
+83,84,Judith,Nguyen,Missouri,Female,Yes,84,16.859375,4.0,13.0
+84,85,Kenneth,Ramirez,,Male,Yes,85,19.0,3.49645390070922,18.0
+85,86,Margaret,Scott,North Carolina,Female,Yes,86,15.0,3.51006711409396,19.0
+86,87,Martha,Moreno,Kentucky,Female,Yes,87,19.0,2.0,17.185185185185187
+87,88,Sandra,Nguyen,,Female,No,88,17.008849557522122,3.0,7.0
+88,89,Albert,Willis,Utah,Male,Yes,89,18.0,3.49645390070922,13.0
+89,90,Shirley,Wheeler,Ohio,Female,No,90,17.008849557522122,3.0,11.0
+90,91,Heather,Olson,Texas,Female,No,91,17.008849557522122,2.0,19.0
+91,92,Lois,Hanson,Washington,Female,Yes,92,19.0,4.0,31.0
+92,93,Diane,Stanley,Ohio,Female,Yes,93,16.0,3.51006711409396,20.0
+93,94,Jack,Williamson,Florida,,Yes,94,16.0,4.0,31.0
+94,95,Earl,Walker,Louisiana,Male,No,95,15.0,3.0,31.0
+95,96,Justin,Gardner,Nebraska,Male,Yes,96,16.96987951807229,3.49645390070922,29.0
+96,97,Edward,Hughes,California,Male,Yes,97,18.0,2.0,15.26896551724138
+97,98,Lisa,Harper,Florida,Female,Yes,98,15.0,3.51006711409396,23.0
+98,99,Amy,Alexander,,Female,No,99,19.0,3.0,13.0
+99,100,Emily,Bradley,,Female,Yes,100,17.0,3.51006711409396,5.0
+100,101,Diana,Evans,Texas,,Yes,101,,3.0,
+101,102,Juan,Romero,Texas,,No,102,16.0,3.0,15.0
+102,103,Debra,Woods,,Female,Yes,103,19.0,4.0,13.0
+103,104,Donna,Cooper,Florida,Female,Yes,104,15.0,3.51006711409396,17.185185185185187
+104,105,Jason,Wright,Virginia,Male,Yes,105,17.0,4.0,23.0
+105,106,Mary,Sanchez,Michigan,Female,No,106,16.0,2.0,21.0
+106,107,Steven,Welch,New York,Male,No,107,16.0,3.0,17.0
+107,108,Debra,Larson,Virginia,Female,Yes,108,17.0,4.0,17.185185185185187
+108,109,Carlos,Gibson,Connecticut,Male,Yes,109,15.0,4.0,28.0
+109,110,Janet,Johnson,Virginia,Female,Yes,110,17.0,3.51006711409396,16.0
+110,111,Kathryn,Welch,Colorado,Female,Yes,111,15.0,4.0,17.185185185185187
+111,112,Kathleen,Dixon,New York,Female,No,112,17.008849557522122,2.0,6.0
+112,113,Harold,Rivera,,Male,No,113,18.0,2.0,10.0
+113,114,Nancy,Olson,Illinois,Female,Yes,114,15.0,3.51006711409396,17.185185185185187
+114,115,Daniel,Jacobs,Missouri,Male,Yes,115,15.0,4.0,26.0
+115,116,Eugene,Ferguson,Connecticut,Male,No,116,16.0,3.0,15.0
+116,117,Johnny,Webb,South Carolina,Male,No,117,18.0,3.0,16.0
+117,118,Lillian,Frazier,Nebraska,Female,Yes,118,15.0,4.0,21.0
+118,119,Stephanie,Gomez,,Female,No,119,17.008849557522122,3.0,31.0
+119,120,Linda,Wagner,New York,Female,No,120,16.0,3.0,29.0
+120,121,Carlos,Oliver,Florida,Male,No,121,16.0,2.0,33.0
+121,122,Jose,Diaz,,Male,No,122,15.0,2.0,12.0
+122,123,William,Sanchez,,,No,123,15.0,3.0,28.0
+123,124,Eugene,Harper,Louisiana,Male,Yes,124,19.0,4.0,14.0
+124,125,Louis,Lewis,Utah,Male,Yes,125,15.0,4.0,17.0
+125,126,Janice,Watson,,Female,Yes,126,18.0,3.0,17.185185185185187
+126,127,Shawn,Grant,Florida,Male,Yes,127,15.0,3.49645390070922,21.0
+127,128,Margaret,Johnston,Texas,Female,Yes,128,19.0,2.0,2.0
+128,129,Laura,Ford,Texas,Female,No,129,17.008849557522122,3.0,18.0
+129,130,Lillian,Perez,Colorado,Female,Yes,130,16.859375,4.0,19.0
+130,131,Jose,Morgan,Pennsylvania,Male,No,131,19.0,2.0,8.0
+131,132,Andrew,Meyer,,,Yes,132,17.0,2.0,
+132,133,Joshua,Lynch,Connecticut,Male,Yes,133,18.0,3.49645390070922,7.0
+133,134,Sean,Sanders,New York,Male,No,134,16.0,2.0,8.0
+134,135,Bruce,Williamson,Minnesota,,Yes,135,17.0,,
+135,136,Harry,Reid,Mississippi,Male,No,136,17.218487394957982,3.0,30.0
+136,137,Beverly,Wallace,Colorado,Female,No,137,19.0,3.0,9.0
+137,138,Elizabeth,Ryan,Washington,Female,Yes,138,15.0,3.51006711409396,3.0
+138,139,James,Russell,Florida,,No,139,19.0,2.0,29.0
+139,140,Judith,Warren,,Female,No,140,17.0,3.0,31.0
+140,141,Jesse,Woods,,Male,Yes,141,16.0,4.0,6.0
+141,142,Lori,Alvarez,Tennessee,Female,Yes,142,15.0,4.0,25.0
+142,143,Sara,Collins,Minnesota,Female,Yes,143,18.0,3.0,3.0
+143,144,Nicholas,Graham,Georgia,Male,Yes,144,18.0,4.0,15.26896551724138
+144,145,Sara,Armstrong,Georgia,Female,Yes,145,16.0,3.51006711409396,7.0
+145,146,Ernest,Harper,Alaska,Male,Yes,146,15.0,4.0,32.0
+146,147,Willie,Fisher,Ohio,Male,Yes,147,18.0,3.49645390070922,7.0
+147,148,Alan,Daniels,Minnesota,Male,No,148,17.0,3.0,7.0
+148,149,Jason,Moreno,Virginia,Male,Yes,149,16.96987951807229,4.0,16.0
+149,150,Rose,Brooks,District of Columbia,Female,Yes,150,15.0,4.0,17.185185185185187
+150,151,Shawn,Green,,Male,Yes,151,18.0,3.49645390070922,10.0
+151,152,Fred,Henderson,Nevada,Male,No,152,19.0,3.0,20.0
+152,153,Evelyn,Watson,New Jersey,,Yes,153,18.0,4.0,12.0
+153,154,Wanda,Hawkins,Minnesota,Female,Yes,154,16.0,3.51006711409396,30.0
+154,155,Clarence,Baker,New York,Male,Yes,155,19.0,2.0,15.26896551724138
+155,156,Juan,Bradley,Kentucky,,No,156,19.0,2.0,14.0
+156,157,Anne,Stone,New York,,No,157,17.0,2.0,15.0
+157,158,Raymond,Davis,New Mexico,Male,Yes,158,16.96987951807229,3.49645390070922,30.0
+158,159,Sharon,Fuller,Texas,Female,Yes,159,17.0,2.0,17.185185185185187
+159,160,Raymond,James,Florida,,No,160,15.0,3.0,28.0
+160,161,Evelyn,Berry,,,No,161,18.0,2.0,25.0
+161,162,Brandon,Bryant,Delaware,,Yes,162,,,33.0
+162,163,Maria,Medina,Missouri,,No,163,15.0,3.0,32.0
+163,164,Pamela,Phillips,Washington,Female,No,164,17.0,3.0,23.0
+164,165,Eugene,Weaver,Washington,Male,No,165,19.0,2.0,30.0
+165,166,Janet,Martin,Kansas,Female,Yes,166,17.0,3.0,2.0
+166,167,Angela,Marshall,Tennessee,,No,167,18.0,3.0,23.0
+167,168,Tina,Lopez,Nevada,Female,Yes,168,16.859375,3.0,17.185185185185187
+168,169,Matthew,Cox,District of Columbia,Male,No,169,19.0,2.0,5.0
+169,170,Louise,Morales,Alaska,Female,Yes,170,15.0,2.0,17.185185185185187
+170,171,Annie,Oliver,District of Columbia,Female,Yes,171,18.0,3.51006711409396,11.0
+171,172,Gregory,Diaz,Michigan,Male,No,172,19.0,2.0,22.0
+172,173,Carolyn,Matthews,Connecticut,Female,No,173,16.0,2.0,9.0
+173,174,Marilyn,Martinez,Florida,,No,174,17.0,3.0,23.0
+174,175,Carolyn,Daniels,Louisiana,Female,No,175,18.0,2.0,33.0
+175,176,Larry,Ross,Tennessee,Male,Yes,176,17.0,4.0,15.26896551724138
+176,177,Brandon,Carpenter,Florida,,Yes,177,15.0,,18.0
+177,178,Andrea,Fox,Texas,Female,Yes,178,16.859375,3.51006711409396,11.0
+178,179,Victor,Ferguson,California,Male,Yes,179,18.0,4.0,15.26896551724138
+179,180,Katherine,Alexander,Florida,Female,No,180,17.008849557522122,3.0,28.0
+180,181,John,Bailey,Virginia,,Yes,181,17.0,,31.0
+181,182,Eric,Hill,Georgia,Male,Yes,182,15.0,4.0,15.26896551724138
+182,183,Randy,Jacobs,Florida,Male,No,183,18.0,3.0,34.0
+183,184,Patricia,Welch,Nevada,,Yes,184,,3.0,
+184,185,Tammy,Flores,,Female,No,185,17.008849557522122,3.0,23.0
+185,186,Mark,Meyer,South Carolina,Male,No,186,17.218487394957982,3.0,8.0
+186,187,Brian,Snyder,,Male,No,187,18.0,2.0,22.0
+187,188,Walter,Brown,District of Columbia,Male,Yes,188,15.0,2.0,15.26896551724138
+188,189,Patrick,Daniels,Colorado,Male,No,189,19.0,3.0,4.0
+189,190,Diane,Collins,Louisiana,Female,Yes,190,17.0,4.0,25.0
+190,191,Irene,Warren,Kansas,Female,Yes,191,17.0,3.0,17.185185185185187
+191,192,Janet,Gibson,Tennessee,Female,Yes,192,19.0,4.0,17.185185185185187
+192,193,Eugene,Porter,Kentucky,Male,No,193,18.0,3.0,23.0
+193,194,Amy,Sullivan,Missouri,Female,Yes,194,19.0,3.0,17.185185185185187
+194,195,George,Rogers,Michigan,Male,No,195,19.0,3.0,15.0
+195,196,Cheryl,Simmons,Virginia,Female,Yes,196,16.859375,4.0,17.0
+196,197,Maria,Torres,,Female,Yes,197,15.0,4.0,6.0
+197,198,Jonathan,Lewis,District of Columbia,Male,Yes,198,15.0,2.0,15.26896551724138
+198,199,Jeremy,Dixon,Virginia,Male,Yes,199,15.0,3.49645390070922,34.0
+199,200,Raymond,Campbell,Texas,Male,No,200,19.0,3.0,24.0
+200,201,Heather,Foster,,Female,Yes,201,15.0,4.0,24.0
+201,202,Gary,Reid,Pennsylvania,Male,Yes,202,16.0,3.49645390070922,14.0
+202,203,Peter,Mitchell,District of Columbia,Male,No,203,19.0,3.0,15.0
+203,204,Jean,Mendoza,Alabama,Female,Yes,204,15.0,4.0,6.0
+204,205,Diane,Rice,Texas,Female,No,205,15.0,3.0,28.0
+205,206,Shawn,Hansen,Kansas,Male,No,206,16.0,3.0,28.0
+206,207,Kathryn,Harris,Texas,Female,Yes,207,16.0,4.0,18.0
+207,208,Jesse,Little,Georgia,Male,Yes,208,16.0,3.49645390070922,5.0
+208,209,Joan,Ward,Ohio,Female,Yes,209,19.0,2.0,17.185185185185187
+209,210,Frances,Arnold,District of Columbia,Female,Yes,210,17.0,3.51006711409396,17.185185185185187
+210,211,Maria,Bowman,Virginia,Female,Yes,211,19.0,4.0,17.185185185185187
+211,212,Robin,Perry,California,Female,Yes,212,15.0,4.0,2.0
+212,213,Mary,Oliver,,,Yes,213,18.0,,16.0
+213,214,Catherine,Graham,,Female,No,214,17.008849557522122,2.0,6.0
+214,215,Bonnie,Harris,Florida,Female,Yes,215,16.859375,3.51006711409396,8.0
+215,216,Jeremy,Wood,Nevada,Male,No,216,17.218487394957982,2.0,5.0
+216,217,Joan,Hamilton,Arizona,Female,Yes,217,15.0,3.51006711409396,17.185185185185187
+217,218,Terry,Rogers,Alabama,Male,Yes,218,17.0,4.0,10.0
+218,219,Kenneth,Chapman,Illinois,Male,No,219,16.0,3.0,24.0
+219,220,Anne,Diaz,Texas,Female,No,220,16.0,2.0,33.0
+220,221,Carol,Welch,Texas,,No,221,19.0,3.0,33.0
+221,222,Paula,Clark,Minnesota,Female,No,222,19.0,2.0,33.0
+222,223,Gary,Nichols,Florida,Male,Yes,223,17.0,3.49645390070922,28.0
+223,224,Jose,Snyder,,Male,No,224,18.0,2.0,17.0
+224,225,Catherine,Barnes,Pennsylvania,Female,Yes,225,16.859375,3.51006711409396,17.185185185185187
+225,226,Jack,Henry,Texas,Male,No,226,19.0,2.0,12.0
+226,227,Terry,Thomas,Montana,Male,Yes,227,18.0,4.0,14.0
+227,228,Melissa,Patterson,New York,Female,Yes,228,16.859375,4.0,17.0
+228,229,Nancy,Bailey,Colorado,Female,No,229,15.0,2.0,31.0
+229,230,Lisa,Knight,Louisiana,Female,Yes,230,16.859375,4.0,3.0
+230,231,Jesse,Medina,Washington,Male,No,231,17.0,2.0,28.0
+231,232,Harry,Holmes,South Carolina,Male,Yes,232,18.0,3.49645390070922,13.0
+232,233,Alan,Gonzales,Georgia,Male,Yes,233,16.96987951807229,4.0,4.0
+233,234,Jerry,Webb,California,Male,No,234,18.0,2.0,10.0
+234,235,Juan,Ross,Florida,Male,Yes,235,19.0,2.0,15.26896551724138
+235,236,Amy,Gomez,New York,Female,Yes,236,19.0,3.51006711409396,12.0
+236,237,Patrick,Willis,Illinois,Male,Yes,237,17.0,3.49645390070922,30.0
+237,238,Carlos,Wallace,South Carolina,Male,Yes,238,16.96987951807229,3.49645390070922,33.0
+238,239,Brenda,Marshall,Idaho,Female,No,239,17.008849557522122,3.0,4.0
+239,240,Gloria,Brooks,Texas,,Yes,240,16.0,4.0,34.0
+240,241,Christopher,Morgan,Texas,Male,No,241,15.0,3.0,34.0
+241,242,Angela,Wagner,Texas,Female,No,242,16.0,2.0,11.0
+242,243,Andrew,Lopez,Connecticut,Male,Yes,243,16.96987951807229,3.49645390070922,15.26896551724138
+243,244,Matthew,Greene,Nevada,Male,No,244,17.218487394957982,2.0,5.0
+244,245,Earl,Lawson,Massachusetts,Male,No,245,15.0,3.0,26.0
+245,246,William,Matthews,,,No,246,15.0,2.0,20.0
+246,247,Victor,Palmer,Idaho,,Yes,247,15.0,3.0,
+247,248,Phillip,Gonzalez,District of Columbia,Male,Yes,248,15.0,3.49645390070922,15.26896551724138
+248,249,Diana,Jacobs,Florida,Female,No,249,18.0,2.0,24.0
+249,250,Jerry,Sanders,Georgia,Male,No,250,19.0,3.0,6.0
+250,251,Lisa,Owens,West Virginia,Female,No,251,16.0,3.0,17.0
+251,252,Philip,Stone,California,Male,Yes,252,16.96987951807229,4.0,15.26896551724138
+252,253,Frank,Vasquez,California,Male,Yes,253,15.0,4.0,15.26896551724138
+253,254,Eugene,Scott,Florida,Male,No,254,17.218487394957982,2.0,17.0
+254,255,Kathy,Lopez,Florida,Female,No,255,18.0,3.0,24.0
+255,256,Justin,Wheeler,California,Male,Yes,256,15.0,4.0,23.0
+256,257,Tina,Schmidt,North Carolina,Female,No,257,15.0,3.0,12.0
+257,258,Ronald,Thomas,Florida,Male,No,258,15.0,2.0,20.0
+258,259,Michelle,Bradley,District of Columbia,Female,Yes,259,16.0,3.51006711409396,32.0
+259,260,Andrea,Warren,Florida,Female,Yes,260,18.0,3.51006711409396,33.0
+260,261,Richard,Romero,Michigan,Male,No,261,17.218487394957982,2.0,28.0
+261,262,Amanda,Reyes,Texas,,Yes,262,17.0,4.0,33.0
+262,263,Richard,Collins,Kentucky,Male,Yes,263,18.0,2.0,15.26896551724138
+263,264,Kenneth,Olson,Illinois,Male,Yes,264,19.0,3.49645390070922,15.26896551724138
+264,265,Adam,Perry,Georgia,Male,No,265,17.218487394957982,2.0,34.0
+265,266,Carl,Montgomery,,Male,Yes,266,16.96987951807229,4.0,29.0
+266,267,Harold,Powell,Texas,Male,No,267,15.0,2.0,12.0
+267,268,Donald,Little,Kentucky,,No,268,16.0,2.0,33.0
+268,269,Amy,Schmidt,California,Female,Yes,269,16.0,3.51006711409396,3.0
+269,270,Patricia,Hawkins,California,,Yes,270,16.0,,
+270,271,Raymond,Hill,District of Columbia,Male,No,271,17.218487394957982,3.0,29.0
+271,272,Laura,Watson,Louisiana,Female,Yes,272,19.0,3.51006711409396,13.0
+272,273,Nicholas,Morgan,Minnesota,Male,Yes,273,18.0,3.49645390070922,15.26896551724138
+273,274,Anthony,Franklin,Illinois,Male,No,274,17.218487394957982,2.0,9.0
+274,275,Raymond,Shaw,Oregon,Male,Yes,275,19.0,2.0,15.26896551724138
+275,276,Denise,Garza,North Carolina,Female,Yes,276,15.0,3.51006711409396,30.0
+276,277,Bobby,Butler,District of Columbia,Male,Yes,277,16.96987951807229,3.49645390070922,14.0
+277,278,Dennis,Baker,Ohio,Male,Yes,278,16.96987951807229,3.49645390070922,3.0
+278,279,Brenda,Butler,Virginia,Female,No,279,16.0,3.0,9.0
+279,280,Melissa,Morales,District of Columbia,,Yes,280,19.0,,30.0
+280,281,Amy,Franklin,Florida,,No,281,18.0,3.0,32.0
+281,282,Juan,Hunt,California,Male,Yes,282,18.0,3.49645390070922,8.0
+282,283,Brian,Gibson,California,Male,Yes,283,19.0,4.0,17.0
+283,284,Kathy,Duncan,Florida,Female,No,284,15.0,3.0,22.0
+284,285,Steve,Montgomery,Texas,,No,285,15.0,3.0,27.0
+285,286,Amy,King,Indiana,Female,No,286,15.0,3.0,18.0
+286,287,Christine,Freeman,Georgia,Female,No,287,17.008849557522122,3.0,17.0
+287,288,Sean,Stephens,California,,No,288,18.0,2.0,8.0
+288,289,Pamela,Hill,,Female,No,289,17.008849557522122,2.0,25.0
+289,290,Patrick,Gonzalez,Arizona,Male,No,290,17.218487394957982,2.0,31.0
+290,291,Matthew,Sullivan,Texas,Male,Yes,291,16.0,2.0,15.26896551724138
+291,292,Joseph,Kelley,,,Yes,292,,3.0,
+292,293,Anthony,Roberts,Colorado,Male,Yes,293,17.0,2.0,15.26896551724138
+293,294,Andrew,Marshall,Louisiana,Male,Yes,294,17.0,4.0,32.0
+294,295,Pamela,Armstrong,Washington,,No,295,17.0,3.0,11.0
+295,296,Julia,Carr,Texas,Female,Yes,296,17.0,4.0,17.185185185185187
+296,297,Ernest,Day,Florida,,No,297,15.0,3.0,17.0
+297,298,Marie,Ford,Florida,Female,Yes,298,16.859375,3.0,17.185185185185187
+298,299,Clarence,Medina,District of Columbia,Male,Yes,299,18.0,4.0,15.26896551724138
+299,300,Maria,King,California,Female,No,300,17.008849557522122,2.0,8.0
+300,301,Evelyn,Robertson,Florida,Female,Yes,301,15.0,3.51006711409396,2.0
+301,302,Mark,Frazier,Kentucky,Male,Yes,302,16.96987951807229,2.0,3.0
+302,303,Lillian,Knight,Colorado,Female,No,303,15.0,3.0,27.0
+303,304,George,Arnold,Florida,Male,No,304,17.0,3.0,32.0
+304,305,Frances,Parker,Indiana,Female,No,305,17.008849557522122,3.0,34.0
+305,306,David,Thompson,Texas,Male,Yes,306,17.0,4.0,4.0
+306,307,Wayne,Diaz,Virginia,,Yes,307,17.0,4.0,7.0
+307,308,Lawrence,Bradley,West Virginia,,Yes,308,19.0,4.0,25.0
+308,309,Patricia,Hayes,Florida,Female,No,309,19.0,2.0,25.0
+309,310,Helen,Jordan,South Carolina,Female,Yes,310,18.0,3.0,17.185185185185187
+310,311,Stephanie,Moreno,Louisiana,Female,Yes,311,19.0,4.0,17.185185185185187
+311,312,Emily,Edwards,New York,Female,No,312,17.008849557522122,2.0,13.0
+312,313,Virginia,Howard,New York,,No,313,19.0,3.0,15.0
+313,314,Anthony,Hart,Indiana,Male,Yes,314,18.0,4.0,15.26896551724138
+314,315,Jacqueline,Gomez,,,Yes,315,16.0,,33.0
+315,316,Gloria,Hunter,California,,Yes,316,,2.0,3.0
+316,317,Timothy,Gardner,,Male,Yes,317,18.0,4.0,18.0
+317,318,Gregory,Hunt,California,Male,Yes,318,16.96987951807229,4.0,10.0
+318,319,Cynthia,Brown,Arizona,Female,Yes,319,16.859375,3.51006711409396,30.0
+319,320,Nicholas,Campbell,North Carolina,Male,Yes,320,16.0,4.0,15.26896551724138
+320,321,Steve,Garcia,Vermont,Male,Yes,321,17.0,3.0,15.26896551724138
+321,322,Catherine,Hanson,Virginia,,Yes,322,18.0,4.0,29.0
+322,323,Jennifer,Gonzales,New York,Female,No,323,17.0,3.0,23.0
+323,324,Judy,Reyes,New York,Female,No,324,16.0,3.0,29.0
+324,325,Scott,Stone,Minnesota,Male,No,325,16.0,3.0,5.0
+325,326,Ryan,Reed,Texas,Male,No,326,18.0,2.0,8.0
+326,327,Randy,Mason,Virginia,Male,Yes,327,16.96987951807229,4.0,31.0
+327,328,Victor,Day,North Carolina,,Yes,328,16.0,,4.0
+328,329,Karen,Vasquez,Delaware,Female,Yes,329,15.0,4.0,23.0
+329,330,Gary,Medina,Michigan,,Yes,330,15.0,3.0,
+330,331,Donna,Torres,New York,Female,Yes,331,17.0,3.51006711409396,17.185185185185187
+331,332,Doris,Scott,,,No,332,15.0,3.0,34.0
+332,333,Donna,Hunter,,Female,No,333,17.008849557522122,3.0,32.0
+333,334,Linda,Harvey,Alabama,Female,No,334,17.008849557522122,2.0,16.0
+334,335,Patricia,Chapman,Ohio,,No,335,,2.0,23.0
+335,336,Kimberly,Reynolds,Georgia,Female,Yes,336,15.0,4.0,14.0
+336,337,Annie,Morgan,Texas,Female,Yes,337,16.0,2.0,17.185185185185187
+337,338,Jerry,Hanson,,Male,Yes,338,15.0,4.0,9.0
+338,339,Jeffrey,Peterson,New Mexico,,No,339,19.0,2.0,5.0
+339,340,Anthony,Daniels,Tennessee,Male,No,340,16.0,2.0,8.0
+340,341,Anna,Day,Oklahoma,Female,No,341,18.0,2.0,31.0
+341,342,Debra,Arnold,Florida,Female,Yes,342,17.0,3.51006711409396,25.0
+342,343,Judith,Cunningham,California,Female,Yes,343,15.0,4.0,25.0
+343,344,Deborah,Reynolds,Virginia,,Yes,344,18.0,4.0,22.0
+344,345,Theresa,Garza,,Female,Yes,345,15.0,3.51006711409396,17.185185185185187
+345,346,Angela,Sanchez,Nevada,Female,Yes,346,19.0,4.0,27.0
+346,347,Timothy,George,Wisconsin,Male,No,347,17.218487394957982,3.0,19.0
+347,348,Angela,Jordan,North Carolina,Female,Yes,348,15.0,3.51006711409396,23.0
+348,349,Paula,Hunter,,Female,Yes,349,16.859375,4.0,5.0
+349,350,Harold,Evans,Colorado,Male,No,350,17.218487394957982,2.0,34.0
+350,351,Sara,Burke,Kentucky,Female,No,351,19.0,3.0,27.0
+351,352,Nancy,Bryant,New York,,Yes,352,18.0,4.0,19.0
+352,353,Anna,Stephens,,Female,Yes,353,16.0,4.0,17.185185185185187
+353,354,Joyce,Bryant,California,Female,No,354,19.0,3.0,30.0
+354,355,Joyce,Baker,West Virginia,Female,No,355,17.0,2.0,28.0
+355,356,Gary,Fernandez,Maryland,Male,No,356,16.0,3.0,31.0
+356,357,Terry,Anderson,Washington,Male,Yes,357,18.0,4.0,6.0
+357,358,Carlos,Murphy,Oklahoma,Male,No,358,17.0,2.0,7.0
+358,359,Christina,Cox,Missouri,Female,No,359,18.0,2.0,22.0
+359,360,Bonnie,Morrison,,,No,360,,3.0,23.0
+360,361,Steven,Hansen,Wisconsin,Male,Yes,361,18.0,3.49645390070922,15.26896551724138
+361,362,Sara,Perry,North Carolina,Female,No,362,17.008849557522122,3.0,17.0
+362,363,Marie,Rice,Washington,Female,Yes,363,18.0,4.0,17.185185185185187
+363,364,Christopher,Torres,Pennsylvania,Male,Yes,364,18.0,4.0,25.0
+364,365,Richard,Martin,,,Yes,365,17.0,,27.0
+365,366,Todd,Hernandez,,,Yes,366,17.0,,2.0
+366,367,Mary,Patterson,District of Columbia,,Yes,367,17.0,4.0,13.0
+367,368,Ann,Davis,California,,Yes,368,16.0,2.0,
+368,369,David,Lynch,Arizona,Male,Yes,369,15.0,3.49645390070922,13.0
+369,370,Lisa,Stevens,Alabama,,Yes,370,16.0,,2.0
+370,371,Beverly,Wells,,Female,No,371,17.008849557522122,3.0,30.0
+371,372,Larry,Harper,,Male,Yes,372,17.0,4.0,4.0
+372,373,Dennis,Fields,Ohio,Male,No,373,16.0,3.0,34.0
+373,374,Jessica,Jones,South Carolina,Female,Yes,374,17.0,2.0,3.0
+374,375,Juan,Hernandez,Arizona,,Yes,375,16.0,3.0,
+375,376,Antonio,Hart,California,Male,Yes,376,18.0,4.0,15.26896551724138
+376,377,Janice,Ellis,New Jersey,,Yes,377,18.0,3.0,
+377,378,Kimberly,Morgan,New York,Female,No,378,18.0,2.0,32.0
+378,379,Betty,Robertson,Texas,Female,No,379,19.0,3.0,29.0
+379,380,Mildred,Morgan,Oklahoma,Female,No,380,17.008849557522122,2.0,17.0
+380,381,Wanda,Edwards,District of Columbia,Female,Yes,381,15.0,3.51006711409396,17.185185185185187
+381,382,Shawn,Little,Pennsylvania,Male,No,382,19.0,3.0,10.0
+382,383,Louis,Nelson,New Mexico,Male,Yes,383,17.0,4.0,14.0
+383,384,Teresa,Roberts,Illinois,Female,Yes,384,16.0,3.51006711409396,30.0
+384,385,Judith,Ross,Oklahoma,Female,Yes,385,15.0,3.51006711409396,6.0
+385,386,Clarence,Nguyen,California,Male,Yes,386,17.0,3.49645390070922,8.0
+386,387,Lois,Collins,,Female,Yes,387,16.859375,3.0,17.185185185185187
+387,388,Aaron,Bishop,California,Male,Yes,388,17.0,4.0,12.0
+388,389,James,Fields,Virginia,Male,Yes,389,19.0,2.0,15.26896551724138
+389,390,Raymond,Myers,Washington,Male,No,390,17.218487394957982,2.0,25.0
+390,391,Brandon,Ferguson,Texas,Male,No,391,17.0,2.0,23.0
+391,392,Russell,Cook,New York,Male,Yes,392,16.96987951807229,2.0,15.26896551724138
+392,393,Kathleen,Burton,Missouri,,Yes,393,17.0,,
+393,394,Willie,Shaw,Texas,Male,Yes,394,16.0,2.0,15.26896551724138
+394,395,Philip,Nichols,District of Columbia,Male,Yes,395,19.0,3.49645390070922,34.0
+395,396,Steve,Perkins,South Carolina,Male,No,396,17.218487394957982,2.0,30.0
+396,397,Michael,Romero,Kansas,Male,No,397,19.0,3.0,12.0
+397,398,Roy,Garcia,Michigan,Male,Yes,398,15.0,3.49645390070922,34.0
+398,399,Tammy,Fields,Tennessee,,Yes,399,18.0,4.0,29.0
+399,400,Sean,Shaw,,Male,No,400,18.0,2.0,24.0
+400,401,David,Ramirez,California,Male,Yes,401,17.0,2.0,15.26896551724138
+401,402,Richard,Alvarez,Pennsylvania,Male,Yes,402,16.0,4.0,19.0
+402,403,Jeffrey,Miller,Oregon,,Yes,403,19.0,4.0,29.0
+403,404,Edward,Gray,Texas,,No,404,18.0,2.0,30.0
+404,405,Jack,Bell,New York,Male,No,405,17.0,2.0,19.0
+405,406,Joseph,Mitchell,Colorado,,No,406,17.0,3.0,8.0
+406,407,Phyllis,Bradley,Florida,,No,407,15.0,3.0,21.0
+407,408,Lori,Stewart,Texas,Female,No,408,16.0,2.0,26.0
+408,409,Julie,Richardson,Georgia,Female,Yes,409,19.0,3.51006711409396,6.0
+409,410,Cynthia,Stanley,South Carolina,Female,Yes,410,15.0,4.0,17.0
+410,411,Kenneth,Johnston,Massachusetts,Male,Yes,411,19.0,4.0,11.0
+411,412,Chris,Sims,California,Male,No,412,17.218487394957982,2.0,10.0
+412,413,Brian,Hanson,Massachusetts,Male,No,413,17.0,2.0,26.0
+413,414,Matthew,Ward,New York,Male,No,414,15.0,2.0,29.0
+414,415,Carl,Mason,Indiana,,Yes,415,19.0,,18.0
+415,416,Richard,Wells,Texas,,Yes,416,,2.0,
+416,417,Sandra,Daniels,Nebraska,Female,Yes,417,18.0,3.0,17.185185185185187
+417,418,Cheryl,Banks,Texas,,Yes,418,19.0,,6.0
+418,419,Frances,Marshall,Texas,Female,Yes,419,19.0,3.51006711409396,30.0
+419,420,Gerald,Stevens,Florida,Male,Yes,420,19.0,4.0,15.26896551724138
+420,421,Sean,Perez,California,Male,Yes,421,15.0,4.0,29.0
+421,422,Robert,Flores,,Male,Yes,422,18.0,3.49645390070922,17.0
+422,423,Daniel,Lee,,Male,Yes,423,16.0,4.0,7.0
+423,424,Marie,Perry,,,No,424,17.0,3.0,13.0
+424,425,Cheryl,Cruz,Nebraska,Female,No,425,18.0,2.0,16.0
+425,426,Julia,Bishop,Ohio,,Yes,426,19.0,,30.0
+426,427,Earl,Bradley,South Carolina,,No,427,19.0,2.0,10.0
+427,428,Timothy,Watkins,Nevada,Male,Yes,428,16.0,4.0,4.0
+428,429,James,Olson,Louisiana,,Yes,429,15.0,2.0,
+429,430,Gregory,Ramos,,Male,Yes,430,16.0,3.0,15.26896551724138
+430,431,Terry,Reynolds,South Carolina,,No,431,19.0,2.0,33.0
+431,432,Terry,Murphy,Wisconsin,Male,Yes,432,18.0,3.49645390070922,20.0
+432,433,Mark,Cook,New Jersey,Male,No,433,15.0,3.0,28.0
+433,434,Wanda,Weaver,New Jersey,Female,Yes,434,18.0,4.0,22.0
+434,435,Denise,Stewart,Montana,Female,No,435,17.0,2.0,23.0
+435,436,Todd,Gutierrez,Illinois,Male,No,436,16.0,2.0,14.0
+436,437,Debra,Fernandez,New York,Female,Yes,437,16.0,3.51006711409396,30.0
+437,438,Lawrence,Flores,District of Columbia,Male,No,438,16.0,3.0,6.0
+438,439,Juan,Duncan,Kentucky,Male,Yes,439,16.96987951807229,4.0,10.0
+439,440,Marie,Stewart,Missouri,Female,No,440,19.0,2.0,12.0
+440,441,Frances,Harvey,Massachusetts,Female,No,441,15.0,2.0,12.0
+441,442,Willie,Owens,Washington,Male,Yes,442,16.0,4.0,3.0
+442,443,Katherine,Fields,,Female,Yes,443,17.0,4.0,34.0
+443,444,Donald,Jackson,Texas,Male,No,444,15.0,3.0,18.0
+444,445,Daniel,Young,Pennsylvania,Male,Yes,445,16.0,4.0,2.0
+445,446,Paula,Weaver,California,Female,No,446,17.008849557522122,2.0,7.0
+446,447,Robert,Brooks,Texas,Male,Yes,447,15.0,3.49645390070922,7.0
+447,448,Norma,Moore,North Carolina,Female,No,448,15.0,3.0,25.0
+448,449,Catherine,Meyer,Indiana,Female,No,449,16.0,3.0,34.0
+449,450,Melissa,Miller,Nevada,Female,No,450,18.0,3.0,25.0
+450,451,Amanda,Grant,Oklahoma,Female,No,451,15.0,3.0,33.0
+451,452,Walter,Meyer,,Male,Yes,452,16.0,3.49645390070922,13.0
+452,453,Michelle,Stone,Wisconsin,,No,453,,2.0,23.0
+453,454,Ashley,Martin,New York,Female,Yes,454,16.0,3.51006711409396,32.0
+454,455,Paula,Myers,Massachusetts,Female,No,455,18.0,3.0,22.0
+455,456,Charles,Mitchell,,Male,No,456,19.0,3.0,24.0
+456,457,Julia,Jacobs,,Female,Yes,457,19.0,4.0,32.0
+457,458,Judith,Elliott,North Carolina,Female,Yes,458,16.0,4.0,20.0
+458,459,Steven,Baker,Florida,Male,No,459,17.218487394957982,2.0,17.0
+459,460,Gregory,Griffin,South Dakota,Male,No,460,17.0,3.0,9.0
+460,461,Judith,Wright,Florida,,Yes,461,18.0,,
+461,462,Donald,Banks,Pennsylvania,Male,No,462,19.0,3.0,22.0
+462,463,Lawrence,Lee,Florida,Male,Yes,463,16.96987951807229,3.49645390070922,7.0
+463,464,Kimberly,Morgan,Illinois,,Yes,464,16.0,,8.0
+464,465,Patrick,Fields,Indiana,,Yes,465,15.0,,12.0
+465,466,Aaron,Murphy,Florida,Male,No,466,18.0,3.0,12.0
+466,467,Nancy,Adams,Missouri,Female,Yes,467,17.0,3.0,17.185185185185187
+467,468,Virginia,Brown,Florida,Female,Yes,468,15.0,3.51006711409396,17.185185185185187
+468,469,Mary,Bradley,California,,Yes,469,19.0,4.0,
+469,470,Wanda,Greene,North Carolina,Female,No,470,17.008849557522122,3.0,15.0
+470,471,Judith,Campbell,California,Female,No,471,16.0,3.0,34.0
+471,472,Dorothy,Turner,Kentucky,,No,472,18.0,3.0,14.0
+472,473,Judy,Phillips,Florida,Female,Yes,473,19.0,4.0,17.185185185185187
+473,474,Pamela,Kennedy,Indiana,Female,Yes,474,16.0,3.51006711409396,17.185185185185187
+474,475,Brandon,Mendoza,Kentucky,Male,No,475,15.0,3.0,31.0
+475,476,Aaron,Mitchell,Arizona,Male,No,476,18.0,3.0,24.0
+476,477,Jeremy,Stephens,California,,No,477,19.0,3.0,19.0
+477,478,Mary,Miller,Nebraska,Female,Yes,478,15.0,3.0,17.185185185185187
+478,479,Paul,Gibson,Alabama,Male,Yes,479,16.96987951807229,3.0,15.26896551724138
+479,480,Frank,Gonzalez,Florida,Male,No,480,18.0,2.0,16.0
+480,481,Pamela,Grant,Ohio,Female,Yes,481,18.0,3.51006711409396,17.185185185185187
+481,482,Anne,Dean,Virginia,Female,No,482,17.008849557522122,2.0,12.0
+482,483,Joyce,Armstrong,West Virginia,Female,Yes,483,16.859375,3.51006711409396,17.185185185185187
+483,484,Wayne,Palmer,California,Male,No,484,17.218487394957982,3.0,17.0
+484,485,Amanda,Ross,California,Female,Yes,485,16.0,4.0,21.0
+485,486,Andrew,Day,Alabama,,Yes,486,,,30.0
+486,487,Amanda,Crawford,Vermont,Female,Yes,487,19.0,4.0,32.0
+487,488,Matthew,Knight,Maryland,Male,Yes,488,18.0,4.0,6.0
+488,489,Marie,Hawkins,North Carolina,Female,Yes,489,16.0,3.51006711409396,13.0
+489,490,Deborah,Hill,Indiana,Female,No,490,16.0,3.0,29.0
+490,491,Cheryl,Russell,Nebraska,,No,491,19.0,3.0,25.0
+491,492,Martin,Black,Texas,,No,492,15.0,3.0,11.0
+492,493,Theresa,Martin,California,,No,493,,3.0,16.0
+493,494,Joyce,Peterson,West Virginia,Female,No,494,17.008849557522122,3.0,10.0
+494,495,Frances,Cruz,Virginia,Female,Yes,495,16.0,4.0,9.0
+495,496,Rebecca,Carter,Florida,Female,Yes,496,16.859375,3.51006711409396,32.0
+496,497,Juan,Robertson,Ohio,Male,Yes,497,16.96987951807229,4.0,5.0
+497,498,Kathryn,Jackson,,Female,Yes,498,16.0,3.51006711409396,3.0
+498,499,Mary,Young,Pennsylvania,Female,Yes,499,15.0,3.51006711409396,30.0
+499,500,Benjamin,Gibson,California,,No,500,,3.0,9.0
+500,501,Diane,Ellis,Colorado,Female,Yes,501,16.859375,4.0,17.185185185185187
+501,502,Susan,Lewis,Texas,Female,No,502,17.008849557522122,2.0,8.0
+502,503,Frank,Jacobs,Washington,Male,No,503,15.0,2.0,23.0
+503,504,Doris,Ortiz,Washington,Female,Yes,504,17.0,4.0,19.0
+504,505,Ashley,Sims,Massachusetts,Female,Yes,505,18.0,4.0,18.0
+505,506,David,Ross,Kentucky,Male,Yes,506,15.0,4.0,15.26896551724138
+506,507,Christina,Schmidt,Texas,,Yes,507,19.0,,13.0
+507,508,Scott,Johnson,Florida,Male,Yes,508,17.0,4.0,12.0
+508,509,Jerry,Fox,Illinois,,No,509,19.0,2.0,14.0
+509,510,Ryan,Woods,Texas,Male,No,510,17.0,3.0,18.0
+510,511,Nancy,Palmer,New Jersey,Female,Yes,511,16.859375,3.51006711409396,26.0
+511,512,Robert,Gomez,Texas,,No,512,,3.0,6.0
+512,513,Robin,Bailey,Illinois,Female,No,513,17.0,2.0,18.0
+513,514,Kevin,Mitchell,Mississippi,Male,Yes,514,18.0,4.0,15.26896551724138
+514,515,Jose,Gordon,Louisiana,Male,No,515,17.218487394957982,3.0,15.0
+515,516,Catherine,Bradley,Arizona,Female,No,516,17.0,2.0,15.0
+516,517,Helen,Robertson,Colorado,Female,No,517,18.0,2.0,15.0
+517,518,Roy,Mccoy,Missouri,Male,Yes,518,15.0,3.0,15.26896551724138
+518,519,Jimmy,Hicks,Minnesota,,Yes,519,18.0,3.0,2.0
+519,520,Justin,Gibson,Illinois,Male,No,520,18.0,2.0,29.0
+520,521,Virginia,Reed,Wisconsin,,Yes,521,18.0,,30.0
+521,522,Doris,Collins,Ohio,,Yes,522,19.0,,26.0
+522,523,Larry,Fernandez,Colorado,Male,Yes,523,16.96987951807229,4.0,15.26896551724138
+523,524,Andrew,Ross,Tennessee,Male,Yes,524,16.96987951807229,3.49645390070922,21.0
+524,525,Patrick,Harvey,Minnesota,Male,Yes,525,15.0,3.49645390070922,27.0
+525,526,Kelly,Franklin,,,Yes,526,16.0,4.0,34.0
+526,527,Terry,Armstrong,Missouri,Male,No,527,18.0,2.0,12.0
+527,528,Louis,Martin,District of Columbia,,Yes,528,18.0,,16.0
+528,529,Beverly,Medina,District of Columbia,Female,Yes,529,16.0,4.0,28.0
+529,530,Carl,Rodriguez,Arizona,,No,530,15.0,2.0,20.0
+530,531,Stephen,Stanley,New York,Male,Yes,531,15.0,3.49645390070922,10.0
+531,532,Ernest,Nguyen,Texas,Male,Yes,532,15.0,4.0,10.0
+532,533,Emily,Hamilton,Ohio,,Yes,533,16.0,4.0,25.0
+533,534,Henry,Daniels,Massachusetts,,Yes,534,18.0,4.0,16.0
+534,535,Teresa,Grant,Virginia,,No,535,16.0,3.0,16.0
+535,536,Alice,Martinez,Missouri,Female,No,536,19.0,2.0,27.0
+536,537,Alan,Campbell,,Male,Yes,537,17.0,2.0,3.0
+537,538,Henry,Murphy,California,,No,538,15.0,2.0,26.0
+538,539,Sean,Dean,New Jersey,Male,Yes,539,16.96987951807229,4.0,6.0
+539,540,Janice,Gilbert,Texas,Female,Yes,540,15.0,2.0,17.185185185185187
+540,541,Alice,Snyder,Arkansas,Female,Yes,541,15.0,3.0,2.0
+541,542,Debra,Meyer,Alabama,Female,Yes,542,16.859375,2.0,17.185185185185187
+542,543,Cynthia,Stewart,Missouri,Female,No,543,15.0,2.0,7.0
+543,544,Phillip,Olson,Tennessee,Male,No,544,17.218487394957982,3.0,19.0
+544,545,Thomas,Mcdonald,Texas,,Yes,545,17.0,4.0,8.0
+545,546,David,Hart,Indiana,,Yes,546,17.0,3.0,
+546,547,Walter,Lawson,District of Columbia,Male,No,547,17.0,2.0,28.0
+547,548,Pamela,Stewart,Texas,Female,No,548,19.0,2.0,8.0
+548,549,Linda,Montgomery,Georgia,Female,No,549,15.0,2.0,27.0
+549,550,Jesse,Henry,Michigan,Male,Yes,550,17.0,3.49645390070922,15.26896551724138
+550,551,James,Richards,New Mexico,Male,Yes,551,15.0,3.49645390070922,14.0
+551,552,Ryan,Johnston,Florida,Male,Yes,552,16.96987951807229,4.0,22.0
+552,553,Kathleen,Ford,Florida,,Yes,553,18.0,4.0,17.0
+553,554,Samuel,Young,Delaware,Male,No,554,19.0,3.0,25.0
+554,555,Albert,Perez,Virginia,Male,Yes,555,19.0,3.49645390070922,6.0
+555,556,Teresa,Gomez,California,Female,Yes,556,15.0,4.0,19.0
+556,557,Johnny,Allen,,Male,Yes,557,15.0,3.49645390070922,21.0
+557,558,Louise,James,Kentucky,,Yes,558,16.0,,25.0
+558,559,Victor,Robinson,Arizona,,No,559,19.0,2.0,33.0
+559,560,Joshua,Hart,Tennessee,Male,Yes,560,18.0,4.0,21.0
+560,561,Arthur,Ryan,California,Male,Yes,561,18.0,3.49645390070922,22.0
+561,562,Michelle,Kim,Indiana,Female,No,562,17.008849557522122,3.0,15.0
+562,563,Lawrence,Thompson,North Carolina,Male,Yes,563,16.0,3.49645390070922,4.0
+563,564,Roy,Stevens,Oklahoma,Male,Yes,564,15.0,2.0,15.26896551724138
+564,565,Keith,Warren,Ohio,Male,No,565,17.218487394957982,3.0,15.0
+565,566,Shawn,Torres,,,Yes,566,19.0,4.0,
+566,567,Jesse,Ortiz,Tennessee,Male,Yes,567,16.96987951807229,4.0,21.0
+567,568,Raymond,Miller,Ohio,Male,No,568,17.218487394957982,2.0,18.0
+568,569,Daniel,Fields,Kentucky,Male,No,569,17.0,3.0,23.0
+569,570,Helen,Day,Massachusetts,Female,No,570,15.0,2.0,17.0
+570,571,Bonnie,Jackson,California,Female,Yes,571,19.0,3.51006711409396,28.0
+571,572,Betty,Anderson,Alabama,Female,Yes,572,17.0,3.51006711409396,29.0
+572,573,Dennis,Ortiz,Iowa,Male,Yes,573,16.0,3.49645390070922,22.0
+573,574,Larry,Graham,Virginia,Male,Yes,574,18.0,3.0,15.26896551724138
+574,575,Russell,Bell,Oklahoma,Male,No,575,18.0,3.0,11.0
+575,576,Elizabeth,Hill,Oregon,Female,Yes,576,17.0,3.51006711409396,7.0
+576,577,Lori,Gordon,Texas,,No,577,,2.0,28.0
+577,578,Michelle,Moore,,Female,Yes,578,16.0,3.51006711409396,30.0
+578,579,Beverly,Gordon,Texas,Female,No,579,17.0,3.0,15.0
+579,580,Kathryn,Brooks,Tennessee,,No,580,18.0,2.0,9.0
+580,581,Heather,Hawkins,District of Columbia,Female,Yes,581,16.0,3.51006711409396,21.0
+581,582,Anna,Pierce,Indiana,,Yes,582,17.0,,18.0
+582,583,Lois,Adams,Kentucky,Female,No,583,19.0,3.0,24.0
+583,584,Ronald,Collins,Florida,Male,No,584,19.0,3.0,26.0
+584,585,Bruce,Perez,Texas,Male,Yes,585,15.0,2.0,15.26896551724138
+585,586,Robert,Patterson,Utah,,Yes,586,16.0,,34.0
+586,587,Lisa,Medina,Florida,,No,587,15.0,2.0,4.0
+587,588,Judith,Reed,Florida,Female,Yes,588,16.859375,4.0,4.0
+588,589,Carol,Hernandez,Minnesota,Female,Yes,589,19.0,3.51006711409396,27.0
+589,590,Timothy,Davis,Hawaii,Male,No,590,19.0,2.0,32.0
+590,591,Mark,Nguyen,Arkansas,Male,Yes,591,16.96987951807229,2.0,15.26896551724138
+591,592,Arthur,Miller,Louisiana,Male,Yes,592,16.96987951807229,3.49645390070922,26.0
+592,593,Bruce,Foster,,Male,Yes,593,19.0,4.0,13.0
+593,594,Walter,Garcia,California,Male,No,594,15.0,2.0,28.0
+594,595,Cheryl,Rice,Pennsylvania,Female,No,595,16.0,2.0,4.0
+595,596,Earl,Bennett,Texas,Male,Yes,596,16.96987951807229,3.49645390070922,15.26896551724138
+596,597,Carlos,Gray,Virginia,Male,Yes,597,16.96987951807229,4.0,15.26896551724138
+597,598,Janet,Franklin,Florida,,Yes,598,,3.0,
+598,599,Doris,Murray,,Female,Yes,599,17.0,4.0,3.0
+599,600,Amy,Powell,,Female,No,600,15.0,2.0,31.0
+600,601,Pamela,Boyd,Pennsylvania,Female,Yes,601,15.0,4.0,10.0
+601,602,Sarah,Butler,Ohio,Female,No,602,17.008849557522122,3.0,27.0
+602,603,Peter,Martin,Washington,Male,No,603,19.0,3.0,30.0
+603,604,Jean,Washington,,Female,No,604,15.0,2.0,19.0
+604,605,James,Lane,Arizona,,Yes,605,15.0,,30.0
+605,606,Theresa,Simpson,District of Columbia,,Yes,606,18.0,2.0,
+606,607,Elizabeth,Miller,Colorado,Female,Yes,607,16.0,3.0,17.185185185185187
+607,608,Carlos,Freeman,California,,No,608,19.0,3.0,22.0
+608,609,Rachel,Barnes,Alabama,Female,Yes,609,19.0,3.51006711409396,26.0
+609,610,Thomas,Ross,Florida,Male,No,610,17.218487394957982,2.0,26.0
+610,611,Dorothy,Boyd,Washington,Female,No,611,15.0,2.0,6.0
+611,612,Karen,Torres,Florida,,Yes,612,17.0,4.0,27.0
+612,613,Nancy,Duncan,California,Female,No,613,19.0,3.0,13.0
+613,614,Jeremy,Rose,California,Male,Yes,614,17.0,2.0,15.26896551724138
+614,615,Johnny,Berry,Texas,Male,Yes,615,15.0,2.0,15.26896551724138
+615,616,Shawn,George,District of Columbia,Male,Yes,616,15.0,3.49645390070922,6.0
+616,617,Bobby,Hill,Florida,Male,Yes,617,16.96987951807229,4.0,27.0
+617,618,Debra,Robinson,Oregon,Female,Yes,618,17.0,4.0,30.0
+618,619,Fred,Sanchez,Michigan,Male,Yes,619,16.96987951807229,3.0,3.0
+619,620,Johnny,Wood,,Male,Yes,620,18.0,4.0,15.26896551724138
+620,621,Richard,Murray,Indiana,Male,Yes,621,17.0,4.0,7.0
+621,622,Antonio,Crawford,West Virginia,,Yes,622,19.0,,30.0
+622,623,Catherine,Ross,Maine,Female,No,623,18.0,2.0,30.0
+623,624,Larry,Wagner,New Jersey,Male,Yes,624,15.0,4.0,3.0
+624,625,Adam,Fernandez,,Male,No,625,16.0,3.0,29.0
+625,626,Anne,Kelley,Ohio,Female,No,626,16.0,2.0,33.0
+626,627,Nicholas,Washington,Indiana,Male,Yes,627,18.0,4.0,22.0
+627,628,Christina,Roberts,California,Female,No,628,17.0,2.0,4.0
+628,629,Diana,Ryan,Texas,Female,No,629,15.0,2.0,14.0
+629,630,Antonio,King,Michigan,Male,Yes,630,17.0,3.49645390070922,15.26896551724138
+630,631,Linda,Matthews,Wisconsin,Female,Yes,631,16.859375,4.0,2.0
+631,632,Rachel,Collins,Texas,,Yes,632,19.0,4.0,
+632,633,Bruce,Bell,Texas,Male,Yes,633,18.0,4.0,5.0
+633,634,Amanda,Fisher,Indiana,Female,Yes,634,16.859375,3.51006711409396,28.0
+634,635,Melissa,Cole,Texas,,No,635,18.0,3.0,25.0
+635,636,Lois,Hayes,Wisconsin,Female,Yes,636,16.859375,4.0,28.0
+636,637,Jennifer,Lopez,,Female,Yes,637,16.0,4.0,16.0
+637,638,Robin,Grant,Alabama,,Yes,638,,2.0,3.0
+638,639,Katherine,Bishop,Oregon,Female,Yes,639,19.0,3.51006711409396,10.0
+639,640,Kathleen,Ramos,California,Female,No,640,17.008849557522122,2.0,13.0
+640,641,Arthur,Sanchez,Georgia,,Yes,641,16.0,4.0,
+641,642,Ann,Perkins,New Hampshire,,No,642,17.0,3.0,9.0
+642,643,Brandon,King,Michigan,,No,643,,2.0,6.0
+643,644,Nicole,Ortiz,Illinois,Female,Yes,644,18.0,2.0,17.185185185185187
+644,645,Sean,Nguyen,Texas,,Yes,645,19.0,,24.0
+645,646,Gloria,Wheeler,Texas,Female,No,646,17.008849557522122,2.0,5.0
+646,647,Phillip,Reid,,,Yes,647,15.0,4.0,11.0
+647,648,Billy,Morrison,Minnesota,Male,Yes,648,19.0,3.49645390070922,15.26896551724138
+648,649,Betty,Mcdonald,Ohio,Female,No,649,17.0,2.0,33.0
+649,650,Shirley,Ortiz,,Female,Yes,650,18.0,2.0,17.185185185185187
+650,651,Karen,Simmons,California,Female,Yes,651,18.0,3.51006711409396,7.0
+651,652,Antonio,Taylor,District of Columbia,Male,Yes,652,17.0,4.0,29.0
+652,653,Janice,Clark,West Virginia,Female,Yes,653,16.859375,2.0,17.185185185185187
+653,654,Stephen,Simpson,New Jersey,,Yes,654,16.0,2.0,3.0
+654,655,Kathleen,Brown,,Female,No,655,16.0,2.0,9.0
+655,656,Phillip,Morales,Illinois,Male,No,656,18.0,2.0,6.0
+656,657,Joe,Watson,,Male,No,657,17.218487394957982,3.0,16.0
+657,658,Melissa,Harrison,Texas,Female,Yes,658,16.859375,4.0,24.0
+658,659,Carlos,Carpenter,California,Male,No,659,18.0,3.0,4.0
+659,660,Theresa,Matthews,Hawaii,Female,Yes,660,16.859375,4.0,18.0
+660,661,Sarah,Crawford,Virginia,,Yes,661,19.0,,34.0
+661,662,Christina,Grant,Florida,Female,Yes,662,16.859375,3.51006711409396,12.0
+662,663,Carol,Powell,Illinois,Female,Yes,663,16.859375,4.0,31.0
+663,664,Eugene,Lewis,Missouri,Male,No,664,16.0,3.0,19.0
+664,665,Chris,Hunt,Pennsylvania,Male,Yes,665,16.96987951807229,4.0,23.0
+665,666,Mildred,Ross,West Virginia,,Yes,666,18.0,,24.0
+666,667,Nicole,Hart,Texas,Female,Yes,667,16.859375,2.0,17.185185185185187
+667,668,John,Richards,Texas,,Yes,668,,4.0,25.0
+668,669,Brandon,Lawson,Pennsylvania,Male,No,669,19.0,3.0,29.0
+669,670,Stephanie,Henry,New York,,No,670,18.0,2.0,14.0
+670,671,Janet,Ray,,Female,No,671,17.008849557522122,3.0,19.0
+671,672,Terry,Gray,Colorado,,Yes,672,,,34.0
+672,673,Antonio,Perez,North Carolina,Male,No,673,17.0,2.0,14.0
+673,674,Donna,Russell,Ohio,Female,Yes,674,16.859375,4.0,17.185185185185187
+674,675,Theresa,Kennedy,Indiana,,No,675,15.0,2.0,31.0
+675,676,Jack,Morrison,Alabama,,Yes,676,,2.0,
+676,677,Louis,Rodriguez,Pennsylvania,Male,Yes,677,16.0,3.0,15.26896551724138
+677,678,Gregory,Mccoy,Washington,Male,Yes,678,18.0,2.0,15.26896551724138
+678,679,Gloria,Snyder,Florida,Female,No,679,16.0,3.0,7.0
+679,680,Phyllis,Wagner,,Female,No,680,18.0,3.0,12.0
+680,681,Mildred,Fernandez,North Carolina,,No,681,15.0,2.0,21.0
+681,682,Jean,Sullivan,Arizona,,No,682,19.0,2.0,9.0
+682,683,Christina,Woods,New York,Female,No,683,15.0,2.0,13.0
+683,684,Paula,Webb,Minnesota,Female,No,684,16.0,2.0,17.0
+684,685,Annie,Kennedy,Nevada,,Yes,685,,4.0,24.0
+685,686,Heather,Adams,Texas,Female,Yes,686,16.859375,3.51006711409396,8.0
+686,687,Katherine,Oliver,Virginia,Female,Yes,687,16.859375,4.0,10.0
+687,688,Fred,Gonzalez,Idaho,,Yes,688,17.0,4.0,
+688,689,Beverly,Kelley,Arkansas,,No,689,18.0,2.0,25.0
+689,690,Evelyn,White,Massachusetts,Female,No,690,17.0,3.0,33.0
+690,691,Arthur,Wood,Indiana,Male,No,691,17.0,3.0,26.0
+691,692,Larry,Bennett,Ohio,Male,No,692,15.0,3.0,28.0
+692,693,Sharon,Romero,North Carolina,,Yes,693,17.0,,25.0
+693,694,Michelle,Foster,California,,No,694,17.0,3.0,27.0
+694,695,Philip,Watkins,Arizona,Male,Yes,695,19.0,3.49645390070922,21.0
+695,696,Henry,King,District of Columbia,,Yes,696,,2.0,
+696,697,Daniel,Peterson,Texas,Male,No,697,17.218487394957982,3.0,22.0
+697,698,Daniel,Bowman,Kentucky,,Yes,698,16.0,4.0,31.0
+698,699,Martha,Alvarez,Colorado,Female,No,699,16.0,2.0,13.0
+699,700,Kathryn,Medina,Texas,Female,Yes,700,19.0,2.0,17.185185185185187
+700,701,John,Patterson,,Male,No,701,15.0,2.0,4.0
+701,702,Michael,Shaw,Florida,Male,Yes,702,18.0,3.49645390070922,26.0
+702,703,Janice,Matthews,Kentucky,,No,703,15.0,3.0,34.0
+703,704,Chris,Little,Michigan,Male,Yes,704,16.0,3.49645390070922,25.0
+704,705,Martin,Holmes,Florida,Male,Yes,705,16.96987951807229,4.0,16.0
+705,706,Debra,Morris,Ohio,Female,Yes,706,16.859375,3.51006711409396,19.0
+706,707,Robin,Ryan,,Female,Yes,707,15.0,4.0,15.0
+707,708,Jason,Richardson,Ohio,Male,No,708,16.0,3.0,19.0
+708,709,Harry,Williamson,Pennsylvania,,Yes,709,19.0,4.0,13.0
+709,710,Russell,Anderson,District of Columbia,Male,Yes,710,17.0,4.0,30.0
+710,711,Johnny,Chapman,,Male,No,711,17.218487394957982,2.0,12.0
+711,712,Maria,Stevens,Colorado,Female,Yes,712,16.0,2.0,3.0
+712,713,David,Riley,New York,,Yes,713,18.0,,
+713,714,Bobby,Anderson,Pennsylvania,,Yes,714,,4.0,17.0
+714,715,Stephen,Olson,Florida,Male,Yes,715,19.0,3.49645390070922,10.0
+715,716,Ann,Coleman,Washington,,Yes,716,17.0,2.0,
+716,717,Diane,Vasquez,New York,Female,Yes,717,15.0,4.0,14.0
+717,718,Gloria,Hughes,Ohio,Female,Yes,718,19.0,2.0,17.185185185185187
+718,719,Cynthia,Garza,Ohio,Female,No,719,18.0,3.0,24.0
+719,720,Louise,Edwards,Indiana,Female,No,720,17.0,3.0,31.0
+720,721,Kimberly,Montgomery,,,No,721,17.0,2.0,20.0
+721,722,Brandon,Perry,California,,No,722,,3.0,15.0
+722,723,Shirley,Ford,North Carolina,Female,No,723,17.0,2.0,34.0
+723,724,Phillip,Alvarez,Illinois,Male,Yes,724,16.0,2.0,15.26896551724138
+724,725,Howard,Lawrence,New York,Male,Yes,725,19.0,4.0,33.0
+725,726,Stephanie,Johnson,Pennsylvania,Female,Yes,726,18.0,3.51006711409396,17.185185185185187
+726,727,Sara,Meyer,California,Female,No,727,18.0,2.0,9.0
+727,728,Keith,Fernandez,District of Columbia,Male,No,728,19.0,3.0,8.0
+728,729,Samuel,Allen,Illinois,Male,Yes,729,16.0,4.0,12.0
+729,730,Carol,Burke,New York,Female,Yes,730,15.0,3.51006711409396,29.0
+730,731,Martha,Gordon,Illinois,Female,Yes,731,15.0,3.51006711409396,22.0
+731,732,Katherine,Fox,,Female,Yes,732,17.0,4.0,17.185185185185187
+732,733,Stephanie,Graham,Missouri,Female,Yes,733,17.0,3.51006711409396,8.0
+733,734,Roger,Snyder,Kansas,,Yes,734,18.0,4.0,21.0
+734,735,Mark,Bishop,Ohio,Male,No,735,15.0,2.0,11.0
+735,736,Pamela,Wilson,,Female,Yes,736,19.0,3.51006711409396,20.0
+736,737,Philip,Perkins,Florida,Male,Yes,737,16.96987951807229,4.0,15.26896551724138
+737,738,Clarence,Stevens,Colorado,Male,Yes,738,16.96987951807229,3.49645390070922,14.0
+738,739,Robert,Larson,Iowa,,Yes,739,18.0,,3.0
+739,740,Bruce,Howard,,Male,No,740,17.218487394957982,2.0,20.0
+740,741,Karen,Turner,Missouri,Female,Yes,741,16.0,4.0,28.0
+741,742,Thomas,Baker,Missouri,Male,No,742,15.0,2.0,20.0
+742,743,Thomas,Hayes,California,Male,Yes,743,16.96987951807229,4.0,5.0
+743,744,Larry,Butler,Arizona,Male,No,744,16.0,3.0,28.0
+744,745,Anne,Butler,California,,Yes,745,17.0,,33.0
+745,746,Henry,Peters,,,No,746,19.0,2.0,14.0
+746,747,Patrick,Brooks,California,Male,Yes,747,19.0,3.0,15.26896551724138
+747,748,Eugene,Brooks,California,Male,Yes,748,16.0,4.0,13.0
+748,749,Melissa,King,Virginia,Female,Yes,749,18.0,3.51006711409396,34.0
+749,750,Margaret,Black,New York,,Yes,750,18.0,4.0,
+750,751,Kimberly,Day,Florida,,No,751,19.0,2.0,6.0
+751,752,Joyce,Matthews,New York,Female,Yes,752,16.859375,4.0,27.0
+752,753,Julia,Hawkins,Texas,Female,Yes,753,17.0,4.0,7.0
+753,754,Michelle,Gonzalez,Michigan,Female,Yes,754,17.0,4.0,18.0
+754,755,Jessica,Elliott,Minnesota,,Yes,755,,4.0,28.0
+755,756,Joyce,Murphy,,Female,Yes,756,16.859375,4.0,5.0
+756,757,Joe,Howell,,,No,757,15.0,2.0,20.0
+757,758,Steven,George,Oregon,,Yes,758,16.0,,11.0
+758,759,George,Gomez,California,Male,Yes,759,19.0,4.0,2.0
+759,760,Annie,Hamilton,South Carolina,Female,Yes,760,15.0,3.51006711409396,13.0
+760,761,Michael,James,Georgia,Male,No,761,17.218487394957982,2.0,33.0
+761,762,Jimmy,Holmes,,Male,No,762,17.0,3.0,26.0
+762,763,Helen,Mcdonald,California,Female,No,763,18.0,2.0,15.0
+763,764,Diane,Freeman,,Female,Yes,764,16.859375,2.0,17.185185185185187
+764,765,Lois,Peters,Pennsylvania,Female,Yes,765,19.0,4.0,31.0
+765,766,Brenda,Martin,Texas,,Yes,766,16.0,,
+766,767,Christina,Daniels,Virginia,Female,Yes,767,19.0,3.51006711409396,17.185185185185187
+767,768,Betty,Rose,Hawaii,Female,No,768,17.0,3.0,6.0
+768,769,Beverly,Burns,Virginia,Female,Yes,769,16.859375,4.0,8.0
+769,770,Wayne,Brooks,,Male,No,770,17.218487394957982,3.0,30.0
+770,771,Ralph,Watkins,District of Columbia,Male,Yes,771,15.0,3.49645390070922,17.0
+771,772,Gerald,James,Tennessee,Male,Yes,772,17.0,2.0,15.26896551724138
+772,773,Nicole,Ramos,Texas,Female,Yes,773,16.0,3.51006711409396,12.0
+773,774,Mildred,Williamson,,,No,774,16.0,2.0,27.0
+774,775,Jerry,Hart,Tennessee,,No,775,19.0,2.0,34.0
+775,776,Russell,Scott,Wisconsin,Male,Yes,776,19.0,4.0,29.0
+776,777,Louise,Lane,Pennsylvania,Female,Yes,777,17.0,4.0,34.0
+777,778,Donna,Ramirez,Texas,,No,778,16.0,3.0,6.0
+778,779,Frank,Miller,Texas,Male,No,779,17.218487394957982,2.0,13.0
+779,780,Kimberly,Gordon,Minnesota,,Yes,780,15.0,,
+780,781,Lois,Hansen,New York,,No,781,17.0,2.0,12.0
+781,782,Alan,Pierce,California,Male,No,782,18.0,3.0,20.0
+782,783,Debra,Smith,New York,Female,No,783,17.0,2.0,5.0
+783,784,Jennifer,Armstrong,California,Female,No,784,17.0,3.0,26.0
+784,785,Douglas,Fernandez,Florida,Male,No,785,19.0,3.0,27.0
+785,786,Judith,Alvarez,Michigan,,Yes,786,15.0,4.0,15.0
+786,787,Roy,Owens,Virginia,Male,Yes,787,16.96987951807229,4.0,19.0
+787,788,Doris,Long,Illinois,Female,Yes,788,16.0,4.0,17.185185185185187
+788,789,Diana,Hill,Missouri,Female,Yes,789,19.0,3.51006711409396,17.185185185185187
+789,790,Carolyn,Kelley,Texas,Female,No,790,17.0,2.0,19.0
+790,791,Wayne,Rogers,Alaska,Male,No,791,17.218487394957982,3.0,16.0
+791,792,Lisa,Romero,,Female,Yes,792,17.0,3.0,2.0
+792,793,Ryan,Walker,Massachusetts,Male,Yes,793,16.0,3.49645390070922,15.26896551724138
+793,794,Rose,Ward,Texas,,Yes,794,19.0,4.0,27.0
+794,795,Gary,Baker,Alabama,Male,No,795,19.0,3.0,31.0
+795,796,Lillian,Fields,Tennessee,Female,Yes,796,19.0,4.0,8.0
+796,797,Kelly,Lopez,Alaska,,Yes,797,,,3.0
+797,798,Christopher,Butler,Minnesota,,No,798,17.0,2.0,31.0
+798,799,Mildred,Gray,Virginia,Female,Yes,799,19.0,3.51006711409396,17.185185185185187
+799,800,Carol,Ward,Indiana,,No,800,16.0,2.0,33.0
+800,801,Justin,Clark,California,,Yes,801,,4.0,9.0
+801,802,Angela,Crawford,Ohio,Female,No,802,17.008849557522122,3.0,4.0
+802,803,Clarence,Robinson,Texas,,No,803,15.0,3.0,18.0
+803,804,Jack,Peters,Nevada,,Yes,804,15.0,3.0,2.0
+804,805,Julia,Lee,Pennsylvania,Female,Yes,805,15.0,4.0,17.185185185185187
+805,806,Adam,Chapman,Georgia,Male,Yes,806,16.96987951807229,4.0,18.0
+806,807,Jean,Davis,California,Female,Yes,807,16.0,4.0,3.0
+807,808,Ernest,Davis,California,Male,Yes,808,17.0,3.49645390070922,15.26896551724138
+808,809,Anthony,Ross,Washington,Male,Yes,809,19.0,4.0,4.0
+809,810,Jeffrey,Berry,Pennsylvania,,No,810,15.0,2.0,26.0
+810,811,Jacqueline,Cunningham,Hawaii,Female,Yes,811,16.859375,4.0,31.0
+811,812,Angela,Banks,Florida,Female,Yes,812,19.0,2.0,17.185185185185187
+812,813,Amy,Ortiz,Oklahoma,Female,Yes,813,18.0,3.51006711409396,4.0
+813,814,Angela,Morrison,,Female,Yes,814,16.0,4.0,7.0
+814,815,Gary,Matthews,California,Male,No,815,18.0,3.0,4.0
+815,816,Heather,Lynch,Texas,Female,Yes,816,18.0,2.0,17.185185185185187
+816,817,Phyllis,Edwards,Florida,,No,817,,3.0,17.0
+817,818,Sarah,Lawson,,,No,818,16.0,2.0,20.0
+818,819,Andrew,Reyes,Texas,Male,No,819,15.0,2.0,15.0
+819,820,Deborah,Lawson,Florida,,No,820,16.0,2.0,14.0
+820,821,Paul,Stevens,,Male,No,821,18.0,3.0,14.0
+821,822,Nancy,Oliver,Indiana,,No,822,15.0,2.0,19.0
+822,823,Dennis,Carpenter,Indiana,Male,Yes,823,17.0,3.49645390070922,7.0
+823,824,Patrick,Ross,Texas,,Yes,824,17.0,4.0,26.0
+824,825,Gary,Holmes,,Male,Yes,825,17.0,3.49645390070922,15.26896551724138
+825,826,Kimberly,Torres,,,No,826,,3.0,32.0
+826,827,Amy,Miller,,Female,Yes,827,18.0,3.51006711409396,31.0
+827,828,Ruth,Parker,South Carolina,Female,Yes,828,16.859375,4.0,4.0
+828,829,Juan,Collins,Vermont,Male,Yes,829,17.0,4.0,14.0
+829,830,Mary,Mason,Texas,Female,Yes,830,19.0,4.0,19.0
+830,831,Kathryn,Alexander,New Jersey,Female,No,831,19.0,2.0,17.0
+831,832,Kenneth,Moreno,,Male,No,832,19.0,2.0,14.0
+832,833,Mildred,Welch,Texas,Female,No,833,15.0,3.0,15.0
+833,834,Louis,Riley,Utah,Male,Yes,834,16.96987951807229,4.0,15.26896551724138
+834,835,Roy,Butler,Texas,Male,No,835,19.0,3.0,18.0
+835,836,Diane,Pierce,Indiana,Female,Yes,836,17.0,3.0,2.0
+836,837,Randy,Mendoza,Ohio,Male,Yes,837,16.96987951807229,3.49645390070922,11.0
+837,838,Irene,Cole,Texas,Female,Yes,838,16.0,4.0,23.0
+838,839,James,Myers,Illinois,Male,Yes,839,18.0,4.0,9.0
+839,840,Barbara,Turner,Pennsylvania,Female,No,840,17.0,2.0,32.0
+840,841,Andrea,Duncan,Ohio,Female,Yes,841,18.0,4.0,24.0
+841,842,Tammy,Stone,,,No,842,15.0,3.0,4.0
+842,843,Cheryl,Harvey,,,Yes,843,,4.0,4.0
+843,844,Gloria,Ramos,Kansas,,Yes,844,16.0,4.0,23.0
+844,845,Julia,White,District of Columbia,Female,No,845,15.0,3.0,11.0
+845,846,Alan,Crawford,California,Male,Yes,846,17.0,4.0,15.26896551724138
+846,847,Rachel,Lee,,Female,No,847,19.0,3.0,27.0
+847,848,Laura,Mitchell,Colorado,Female,Yes,848,18.0,4.0,17.185185185185187
+848,849,Christina,Moore,New York,Female,No,849,19.0,3.0,22.0
+849,850,Marie,Wood,Michigan,,Yes,850,,,27.0
+850,851,Jean,Gonzalez,Missouri,Female,No,851,17.0,3.0,23.0
+851,852,Gloria,Edwards,California,,Yes,852,18.0,4.0,
+852,853,Kathy,Bailey,New York,Female,Yes,853,19.0,3.0,17.185185185185187
+853,854,Heather,Owens,,Female,Yes,854,15.0,3.51006711409396,17.185185185185187
+854,855,Ruth,Carroll,Kentucky,Female,Yes,855,16.859375,3.51006711409396,14.0
+855,856,Jimmy,Bryant,Pennsylvania,Male,Yes,856,16.0,3.49645390070922,4.0
+856,857,Thomas,Tucker,California,Male,No,857,17.218487394957982,3.0,8.0
+857,858,Janet,Murphy,Michigan,Female,Yes,858,17.0,3.51006711409396,6.0
+858,859,Angela,Kelly,Connecticut,Female,Yes,859,15.0,4.0,32.0
+859,860,Douglas,Burke,Illinois,,No,860,16.0,3.0,8.0
+860,861,Justin,Bennett,,Male,Yes,861,15.0,2.0,3.0
+861,862,Kevin,Robinson,Montana,Male,No,862,17.218487394957982,3.0,25.0
+862,863,Pamela,Hudson,,Female,Yes,863,16.0,3.51006711409396,17.185185185185187
+863,864,Barbara,Mccoy,New York,,No,864,19.0,3.0,15.0
+864,865,Sara,Garcia,Louisiana,Female,No,865,19.0,3.0,21.0
+865,866,John,Fields,,Male,Yes,866,16.96987951807229,4.0,14.0
+866,867,Joe,Franklin,Ohio,Male,No,867,15.0,2.0,15.0
+867,868,Ruby,Long,Minnesota,,Yes,868,,4.0,4.0
+868,869,Phyllis,Oliver,Michigan,Female,Yes,869,17.0,4.0,27.0
+869,870,Patrick,Barnes,Texas,Male,No,870,17.0,3.0,7.0
+870,871,Joshua,Butler,,Male,Yes,871,18.0,4.0,15.26896551724138
+871,872,Janet,Cox,Texas,Female,No,872,17.008849557522122,3.0,9.0
+872,873,William,Harris,Alabama,Male,No,873,18.0,3.0,6.0
+873,874,Diana,Howard,Minnesota,Female,Yes,874,15.0,3.51006711409396,17.185185185185187
+874,875,Joe,Hicks,Florida,Male,Yes,875,15.0,3.0,15.26896551724138
+875,876,Amy,Walker,Alabama,Female,Yes,876,16.859375,3.51006711409396,29.0
+876,877,Matthew,Brown,Iowa,Male,No,877,19.0,3.0,6.0
+877,878,Adam,Larson,District of Columbia,,No,878,,3.0,27.0
+878,879,Victor,Kelley,California,,Yes,879,17.0,3.0,
+879,880,Amanda,Reyes,District of Columbia,Female,Yes,880,15.0,3.51006711409396,9.0
+880,881,Aaron,Shaw,Texas,,No,881,15.0,2.0,5.0
+881,882,Kevin,Campbell,California,Male,Yes,882,17.0,4.0,28.0
+882,883,Evelyn,Watson,South Carolina,,No,883,15.0,2.0,14.0
+883,884,Amy,Nguyen,New York,Female,No,884,18.0,2.0,30.0
+884,885,Betty,Stone,Colorado,,No,885,17.0,2.0,31.0
+885,886,Susan,Spencer,Missouri,,Yes,886,19.0,4.0,17.0
+886,887,Patricia,Hernandez,Arizona,,Yes,887,19.0,4.0,14.0
+887,888,Jesse,Hunter,Pennsylvania,,No,888,18.0,2.0,16.0
+888,889,Mark,Parker,New York,Male,Yes,889,16.96987951807229,4.0,15.26896551724138
+889,890,Deborah,Franklin,,Female,Yes,890,16.0,4.0,31.0
+890,891,Sharon,Dixon,District of Columbia,Female,No,891,19.0,3.0,12.0
+891,892,Ruth,Larson,Washington,Female,Yes,892,18.0,4.0,17.185185185185187
+892,893,Gerald,Mendoza,Florida,Male,No,893,17.0,3.0,7.0
+893,894,Gregory,Green,Arizona,Male,Yes,894,15.0,4.0,6.0
+894,895,Eric,Greene,California,Male,No,895,15.0,3.0,33.0
+895,896,Amanda,Anderson,Nevada,Female,Yes,896,19.0,4.0,4.0
+896,897,Kathleen,Lane,Indiana,Female,Yes,897,19.0,4.0,24.0
+897,898,Andrew,Murphy,Minnesota,Male,Yes,898,16.0,2.0,15.26896551724138
+898,899,Andrea,Nichols,Maryland,Female,No,899,17.0,2.0,7.0
+899,900,Louis,Sims,Virginia,Male,Yes,900,16.96987951807229,3.49645390070922,10.0
+900,901,Jennifer,Nguyen,Kansas,,No,901,,3.0,6.0
+901,902,Amy,Bennett,Nebraska,Female,Yes,902,15.0,3.51006711409396,6.0
+902,903,Christina,Hall,Florida,Female,No,903,18.0,2.0,14.0
+903,904,Emily,Griffin,Louisiana,Female,Yes,904,15.0,3.0,17.185185185185187
+904,905,Dennis,Stephens,Pennsylvania,Male,No,905,17.0,3.0,25.0
+905,906,Harry,Wells,Pennsylvania,Male,Yes,906,17.0,3.49645390070922,20.0
+906,907,Michael,Grant,,Male,No,907,17.0,2.0,27.0
+907,908,Benjamin,Nguyen,Ohio,Male,Yes,908,19.0,4.0,15.26896551724138
+908,909,Ruth,Ortiz,Pennsylvania,Female,No,909,17.0,2.0,8.0
+909,910,Diane,Austin,,,No,910,,2.0,22.0
+910,911,Sarah,Perry,California,Female,Yes,911,16.859375,3.51006711409396,7.0
+911,912,Patrick,Richards,Minnesota,Male,Yes,912,19.0,3.0,15.26896551724138
+912,913,Melissa,Daniels,Indiana,Female,No,913,17.008849557522122,2.0,24.0
+913,914,Kimberly,Gardner,Virginia,Female,Yes,914,18.0,4.0,17.185185185185187
+914,915,Larry,Smith,Maryland,,No,915,16.0,3.0,15.0
+915,916,Debra,Warren,Texas,Female,Yes,916,15.0,4.0,31.0
+916,917,Beverly,Tucker,Oklahoma,,Yes,917,19.0,,19.0
+917,918,Gary,Fernandez,Maryland,Male,Yes,918,19.0,3.49645390070922,5.0
+918,919,Ralph,Perry,Texas,,Yes,919,15.0,4.0,9.0
+919,920,Patricia,Ellis,Florida,,Yes,920,,4.0,31.0
+920,921,Kathy,Fernandez,New York,Female,No,921,17.008849557522122,2.0,21.0
+921,922,Rebecca,Duncan,California,,No,922,,3.0,31.0
+922,923,Angela,Arnold,New Jersey,,Yes,923,15.0,4.0,11.0
+923,924,Tina,Lopez,Indiana,Female,Yes,924,18.0,3.0,2.0
+924,925,Diane,Griffin,New York,Female,No,925,16.0,2.0,16.0
+925,926,Raymond,Hunt,,Male,Yes,926,15.0,2.0,15.26896551724138
+926,927,Shirley,Kelly,California,Female,No,927,15.0,3.0,27.0
+927,928,Ashley,Ramirez,Texas,Female,No,928,15.0,3.0,29.0
+928,929,Alan,Davis,Wisconsin,Male,Yes,929,17.0,3.49645390070922,15.26896551724138
+929,930,Cheryl,Spencer,Michigan,Female,Yes,930,16.859375,2.0,17.185185185185187
+930,931,Sandra,Hunter,New Mexico,Female,Yes,931,16.859375,3.51006711409396,10.0
+931,932,Barbara,Parker,,Female,No,932,17.008849557522122,2.0,13.0
+932,933,Kimberly,Lynch,Texas,Female,No,933,18.0,3.0,7.0
+933,934,Edward,Meyer,Virginia,Male,No,934,19.0,2.0,28.0
+934,935,Anna,Stone,Texas,,Yes,935,18.0,4.0,17.0
+935,936,Roger,Thompson,Virginia,,Yes,936,18.0,2.0,
+936,937,Gary,Marshall,Minnesota,Male,Yes,937,18.0,4.0,8.0
+937,938,Anthony,Ray,New York,Male,Yes,938,18.0,4.0,4.0
+938,939,Ruby,Castillo,California,Female,No,939,19.0,3.0,11.0
+939,940,Kenneth,Evans,Indiana,Male,Yes,940,15.0,4.0,24.0
+940,941,Nancy,Peters,,Female,Yes,941,16.859375,3.51006711409396,6.0
+941,942,Andrea,Sanchez,Florida,Female,Yes,942,16.859375,3.51006711409396,17.185185185185187
+942,943,Joan,Fox,Virginia,Female,Yes,943,15.0,2.0,17.185185185185187
+943,944,Denise,Holmes,District of Columbia,Female,No,944,17.0,2.0,7.0
+944,945,Todd,Pierce,Missouri,,Yes,945,19.0,,4.0
+945,946,Dennis,Lopez,Georgia,Male,Yes,946,16.96987951807229,3.49645390070922,15.26896551724138
+946,947,Randy,Myers,Delaware,Male,Yes,947,16.96987951807229,3.49645390070922,17.0
+947,948,Maria,Marshall,Georgia,,Yes,948,18.0,4.0,22.0
+948,949,Susan,Gonzales,California,Female,Yes,949,19.0,3.0,17.185185185185187
+949,950,Diane,Fox,Nebraska,Female,No,950,17.008849557522122,2.0,28.0
+950,951,Billy,Gonzales,South Dakota,Male,No,951,16.0,3.0,27.0
+951,952,Jean,Carr,North Dakota,Female,No,952,16.0,2.0,31.0
+952,953,Jerry,Hanson,Texas,Male,Yes,953,18.0,2.0,15.26896551724138
+953,954,Tammy,Parker,Connecticut,Female,Yes,954,19.0,3.51006711409396,33.0
+954,955,Kathleen,Grant,Louisiana,Female,Yes,955,15.0,2.0,2.0
+955,956,Anthony,Sanders,,Male,Yes,956,17.0,4.0,10.0
+956,957,Justin,Lawrence,Florida,,No,957,,3.0,13.0
+957,958,Jacqueline,Day,Illinois,Female,Yes,958,18.0,3.51006711409396,17.185185185185187
+958,959,Wayne,Sanchez,Texas,Male,Yes,959,18.0,4.0,12.0
+959,960,Jerry,Washington,Nevada,Male,No,960,17.218487394957982,3.0,30.0
+960,961,Louise,Brooks,Utah,Female,No,961,17.008849557522122,3.0,26.0
+961,962,Dennis,Schmidt,New York,Male,Yes,962,16.0,2.0,2.0
+962,963,Teresa,Olson,Florida,Female,Yes,963,15.0,4.0,7.0
+963,964,Arthur,Hill,,Male,No,964,17.0,3.0,8.0
+964,965,Craig,Rose,,Male,Yes,965,16.96987951807229,3.49645390070922,10.0
+965,966,Rachel,Hawkins,Minnesota,Female,No,966,17.008849557522122,3.0,20.0
+966,967,Edward,Warren,Florida,Male,No,967,19.0,3.0,15.0
+967,968,Teresa,Fisher,North Carolina,,Yes,968,,4.0,
+968,969,Jean,Gonzales,New York,,No,969,,3.0,4.0
+969,970,Susan,Nguyen,,Female,Yes,970,18.0,3.51006711409396,16.0
+970,971,Michelle,Greene,Oklahoma,Female,Yes,971,16.859375,4.0,8.0
+971,972,Christopher,Stanley,Colorado,Male,No,972,16.0,2.0,29.0
+972,973,Jeffrey,Mason,Georgia,Male,Yes,973,16.96987951807229,4.0,15.26896551724138
+973,974,Phyllis,Smith,,,Yes,974,,4.0,22.0
+974,975,Jessica,Montgomery,Michigan,Female,No,975,18.0,3.0,18.0
+975,976,Jessica,Wheeler,California,Female,Yes,976,16.859375,2.0,17.185185185185187
+976,977,Carl,Bryant,Ohio,,No,977,17.0,2.0,29.0
+977,978,Wanda,Rivera,New York,Female,Yes,978,18.0,4.0,16.0
+978,979,Betty,Reid,Delaware,,Yes,979,15.0,3.0,3.0
+979,980,Ruby,Diaz,Ohio,Female,Yes,980,15.0,4.0,30.0
+980,981,Thomas,Myers,Texas,Male,Yes,981,15.0,3.0,2.0
+981,982,Jane,Sims,Texas,Female,No,982,19.0,2.0,25.0
+982,983,Laura,Nelson,,Female,Yes,983,17.0,2.0,17.185185185185187
+983,984,Jessica,Gonzales,Nevada,Female,No,984,17.0,3.0,15.0
+984,985,Ralph,Freeman,California,Male,No,985,18.0,3.0,31.0
+985,986,Jose,Jordan,Connecticut,Male,Yes,986,16.96987951807229,4.0,20.0
+986,987,Andrea,Banks,California,Female,No,987,19.0,2.0,11.0
+987,988,Gloria,Ross,Missouri,,Yes,988,,4.0,
+988,989,Harry,Carr,Nebraska,,Yes,989,16.0,,34.0
+989,990,Anthony,Sanders,District of Columbia,,Yes,990,15.0,4.0,2.0
+990,991,Ruby,King,California,Female,Yes,991,18.0,4.0,14.0
+991,992,Deborah,King,New York,Female,Yes,992,19.0,4.0,31.0
+992,993,Arthur,Green,Oklahoma,Male,Yes,993,16.96987951807229,4.0,20.0
+993,994,Earl,Weaver,Ohio,Male,No,994,19.0,2.0,26.0
+994,995,Ralph,Lopez,District of Columbia,,Yes,995,16.0,4.0,
+995,996,Frank,Stone,Louisiana,Male,Yes,996,16.0,4.0,25.0
+996,997,Shirley,Garrett,Minnesota,Female,Yes,997,15.0,4.0,17.185185185185187
+997,998,Jane,Rodriguez,Ohio,,Yes,998,17.0,,20.0
+998,999,Robin,George,California,Female,Yes,999,19.0,3.51006711409396,17.185185185185187
+999,1000,Martin,Fowler,Texas,Male,No,1000,18.0,3.0,19.0
