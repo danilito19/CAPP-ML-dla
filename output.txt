@@ -1,57 +1,241 @@
-3
-****column names:   ['ID' 'First_name' 'Last_name' 'State' 'Gender' 'Age' 'GPA' 'Days_missed'
- 'Graduated']
-****top of the data:     ID First_name Last_name           State  Gender   Age  GPA  Days_missed  \
-0   1      Wayne      Boyd         Florida    Male  19.0  NaN          9.0   
-1   2        Ann  Matthews    Pennsylvania  Female  18.0  3.0          NaN   
-2   3     George  Matthews           Texas     NaN  17.0  NaN         10.0   
-3   4      Jerry     Ramos      California    Male  15.0  2.0         28.0   
-4   5     Andrea   Carroll  North Carolina  Female   NaN  2.0         29.0   
+****column names:   ['Unnamed: 0' 'SeriousDlqin2yrs' 'RevolvingUtilizationOfUnsecuredLines'
+ 'age' 'NumberOfTime30-59DaysPastDueNotWorse' 'DebtRatio' 'MonthlyIncome'
+ 'NumberOfOpenCreditLinesAndLoans' 'NumberOfTimes90DaysLate'
+ 'NumberRealEstateLoansOrLines' 'NumberOfTime60-89DaysPastDueNotWorse'
+ 'NumberOfDependents']
+****top of the data:     Unnamed: 0  SeriousDlqin2yrs  RevolvingUtilizationOfUnsecuredLines  age  \
+0           1                 1                              0.766127   45   
+1           2                 0                              0.957151   40   
+2           3                 0                              0.658180   38   
+3           4                 0                              0.233810   30   
+4           5                 0                              0.907239   49   
 
-  Graduated  
-0       Yes  
-1       Yes  
-2       Yes  
-3        No  
-4        No  
-****dataframe shape:  (1000, 9)
-****statistics:                   ID First_name Last_name  State  Gender         Age  \
-count   1000.000000       1000      1000    884     774  771.000000   
-unique          NaN        200       244     49       2         NaN   
-top             NaN        Amy      Ross  Texas  Female         NaN   
-freq            NaN         12        13     97     398         NaN   
-mean     500.500000        NaN       NaN    NaN     NaN   16.996109   
-std      288.819436        NaN       NaN    NaN     NaN    1.458067   
-min        1.000000        NaN       NaN    NaN     NaN   15.000000   
-25%      250.750000        NaN       NaN    NaN     NaN   16.000000   
-50%      500.500000        NaN       NaN    NaN     NaN   17.000000   
-75%      750.250000        NaN       NaN    NaN     NaN   18.000000   
-max     1000.000000        NaN       NaN    NaN     NaN   19.000000   
+   NumberOfTime30-59DaysPastDueNotWorse  DebtRatio  MonthlyIncome  \
+0                                     2   0.802982           9120   
+1                                     0   0.121876           2600   
+2                                     1   0.085113           3042   
+3                                     0   0.036050           3300   
+4                                     1   0.024926          63588   
 
-               GPA  Days_missed Graduated  
-count   779.000000   808.000000      1000  
-unique         NaN          NaN         2  
-top            NaN          NaN       Yes  
-freq           NaN          NaN       593  
-mean      2.988447    18.011139       NaN  
-std       0.818249     9.629371       NaN  
-min       2.000000     2.000000       NaN  
-25%       2.000000     9.000000       NaN  
-50%       3.000000    18.000000       NaN  
-75%       4.000000    27.000000       NaN  
-max       4.000000    34.000000       NaN  
-****sum of null values by column:  ID               0
-First_name       0
-Last_name        0
-State          116
-Gender         226
-Age            229
-GPA            221
-Days_missed    192
-Graduated        0
+   NumberOfOpenCreditLinesAndLoans  NumberOfTimes90DaysLate  \
+0                               13                        0   
+1                                4                        0   
+2                                2                        1   
+3                                5                        0   
+4                                7                        0   
+
+   NumberRealEstateLoansOrLines  NumberOfTime60-89DaysPastDueNotWorse  \
+0                             6                                     0   
+1                             0                                     0   
+2                             0                                     0   
+3                             0                                     0   
+4                             1                                     0   
+
+   NumberOfDependents  
+0                   2  
+1                   1  
+2                   0  
+3                   0  
+4                   0  
+****dataframe shape:  (150000, 12)
+****statistics:            Unnamed: 0  SeriousDlqin2yrs  RevolvingUtilizationOfUnsecuredLines  \
+count  150000.000000     150000.000000                         150000.000000   
+mean    75000.500000          0.066840                              6.048438   
+std     43301.414527          0.249746                            249.755371   
+min         1.000000          0.000000                              0.000000   
+25%     37500.750000          0.000000                              0.029867   
+50%     75000.500000          0.000000                              0.154181   
+75%    112500.250000          0.000000                              0.559046   
+max    150000.000000          1.000000                          50708.000000   
+
+                 age  NumberOfTime30-59DaysPastDueNotWorse      DebtRatio  \
+count  150000.000000                         150000.000000  150000.000000   
+mean       52.295207                              0.421033     353.005076   
+std        14.771866                              4.192781    2037.818523   
+min         0.000000                              0.000000       0.000000   
+25%        41.000000                              0.000000       0.175074   
+50%        52.000000                              0.000000       0.366508   
+75%        63.000000                              0.000000       0.868254   
+max       109.000000                             98.000000  329664.000000   
+
+        MonthlyIncome  NumberOfOpenCreditLinesAndLoans  \
+count   120269.000000                    150000.000000   
+mean      6670.221237                         8.452760   
+std      14384.674215                         5.145951   
+min          0.000000                         0.000000   
+25%       3400.000000                         5.000000   
+50%       5400.000000                         8.000000   
+75%       8249.000000                        11.000000   
+max    3008750.000000                        58.000000   
+
+       NumberOfTimes90DaysLate  NumberRealEstateLoansOrLines  \
+count            150000.000000                 150000.000000   
+mean                  0.265973                      1.018240   
+std                   4.169304                      1.129771   
+min                   0.000000                      0.000000   
+25%                   0.000000                      0.000000   
+50%                   0.000000                      1.000000   
+75%                   0.000000                      2.000000   
+max                  98.000000                     54.000000   
+
+       NumberOfTime60-89DaysPastDueNotWorse  NumberOfDependents  
+count                         150000.000000       146076.000000  
+mean                               0.240387            0.757222  
+std                                4.155179            1.115086  
+min                                0.000000            0.000000  
+25%                                0.000000            0.000000  
+50%                                0.000000            0.000000  
+75%                                0.000000            1.000000  
+max                               98.000000           20.000000  
+****sum of null values by column:  Unnamed: 0                                  0
+SeriousDlqin2yrs                            0
+RevolvingUtilizationOfUnsecuredLines        0
+age                                         0
+NumberOfTime30-59DaysPastDueNotWorse        0
+DebtRatio                                   0
+MonthlyIncome                           29731
+NumberOfOpenCreditLinesAndLoans             0
+NumberOfTimes90DaysLate                     0
+NumberRealEstateLoansOrLines                0
+NumberOfTime60-89DaysPastDueNotWorse        0
+NumberOfDependents                       3924
 dtype: int64
-****correlation matrix:                     ID       Age       GPA  Days_missed
-ID           1.000000  0.018181  0.057870    -0.039756
-Age          0.018181  1.000000 -0.001423     0.018946
-GPA          0.057870 -0.001423  1.000000    -0.013214
-Days_missed -0.039756  0.018946 -0.013214     1.000000
+****correlation matrix:                                        Unnamed: 0  SeriousDlqin2yrs  \
+Unnamed: 0                              1.000000          0.002801   
+SeriousDlqin2yrs                        0.002801          1.000000   
+RevolvingUtilizationOfUnsecuredLines    0.002372         -0.001802   
+age                                     0.004403         -0.115386   
+NumberOfTime30-59DaysPastDueNotWorse   -0.000571          0.125587   
+DebtRatio                              -0.002906         -0.007602   
+MonthlyIncome                           0.002632         -0.019746   
+NumberOfOpenCreditLinesAndLoans         0.004586         -0.029669   
+NumberOfTimes90DaysLate                -0.001104          0.117175   
+NumberRealEstateLoansOrLines           -0.000666         -0.007038   
+NumberOfTime60-89DaysPastDueNotWorse   -0.000777          0.102261   
+NumberOfDependents                     -0.000055          0.046048   
+
+                                      RevolvingUtilizationOfUnsecuredLines  \
+Unnamed: 0                                                        0.002372   
+SeriousDlqin2yrs                                                 -0.001802   
+RevolvingUtilizationOfUnsecuredLines                              1.000000   
+age                                                              -0.005898   
+NumberOfTime30-59DaysPastDueNotWorse                             -0.001314   
+DebtRatio                                                         0.003961   
+MonthlyIncome                                                     0.007124   
+NumberOfOpenCreditLinesAndLoans                                  -0.011281   
+NumberOfTimes90DaysLate                                          -0.001061   
+NumberRealEstateLoansOrLines                                      0.006235   
+NumberOfTime60-89DaysPastDueNotWorse                             -0.001048   
+NumberOfDependents                                                0.001557   
+
+                                           age  \
+Unnamed: 0                            0.004403   
+SeriousDlqin2yrs                     -0.115386   
+RevolvingUtilizationOfUnsecuredLines -0.005898   
+age                                   1.000000   
+NumberOfTime30-59DaysPastDueNotWorse -0.062995   
+DebtRatio                             0.024188   
+MonthlyIncome                         0.037717   
+NumberOfOpenCreditLinesAndLoans       0.147705   
+NumberOfTimes90DaysLate              -0.061005   
+NumberRealEstateLoansOrLines          0.033150   
+NumberOfTime60-89DaysPastDueNotWorse -0.057159   
+NumberOfDependents                   -0.213303   
+
+                                      NumberOfTime30-59DaysPastDueNotWorse  \
+Unnamed: 0                                                       -0.000571   
+SeriousDlqin2yrs                                                  0.125587   
+RevolvingUtilizationOfUnsecuredLines                             -0.001314   
+age                                                              -0.062995   
+NumberOfTime30-59DaysPastDueNotWorse                              1.000000   
+DebtRatio                                                        -0.006542   
+MonthlyIncome                                                    -0.010217   
+NumberOfOpenCreditLinesAndLoans                                  -0.055312   
+NumberOfTimes90DaysLate                                           0.983603   
+NumberRealEstateLoansOrLines                                     -0.030565   
+NumberOfTime60-89DaysPastDueNotWorse                              0.987005   
+NumberOfDependents                                               -0.002680   
+
+                                      DebtRatio  MonthlyIncome  \
+Unnamed: 0                            -0.002906       0.002632   
+SeriousDlqin2yrs                      -0.007602      -0.019746   
+RevolvingUtilizationOfUnsecuredLines   0.003961       0.007124   
+age                                    0.024188       0.037717   
+NumberOfTime30-59DaysPastDueNotWorse  -0.006542      -0.010217   
+DebtRatio                              1.000000      -0.028712   
+MonthlyIncome                         -0.028712       1.000000   
+NumberOfOpenCreditLinesAndLoans        0.049565       0.091455   
+NumberOfTimes90DaysLate               -0.008320      -0.012743   
+NumberRealEstateLoansOrLines           0.120046       0.124959   
+NumberOfTime60-89DaysPastDueNotWorse  -0.007533      -0.011116   
+NumberOfDependents                    -0.040673       0.062647   
+
+                                      NumberOfOpenCreditLinesAndLoans  \
+Unnamed: 0                                                   0.004586   
+SeriousDlqin2yrs                                            -0.029669   
+RevolvingUtilizationOfUnsecuredLines                        -0.011281   
+age                                                          0.147705   
+NumberOfTime30-59DaysPastDueNotWorse                        -0.055312   
+DebtRatio                                                    0.049565   
+MonthlyIncome                                                0.091455   
+NumberOfOpenCreditLinesAndLoans                              1.000000   
+NumberOfTimes90DaysLate                                     -0.079984   
+NumberRealEstateLoansOrLines                                 0.433959   
+NumberOfTime60-89DaysPastDueNotWorse                        -0.071077   
+NumberOfDependents                                           0.065322   
+
+                                      NumberOfTimes90DaysLate  \
+Unnamed: 0                                          -0.001104   
+SeriousDlqin2yrs                                     0.117175   
+RevolvingUtilizationOfUnsecuredLines                -0.001061   
+age                                                 -0.061005   
+NumberOfTime30-59DaysPastDueNotWorse                 0.983603   
+DebtRatio                                           -0.008320   
+MonthlyIncome                                       -0.012743   
+NumberOfOpenCreditLinesAndLoans                     -0.079984   
+NumberOfTimes90DaysLate                              1.000000   
+NumberRealEstateLoansOrLines                        -0.045205   
+NumberOfTime60-89DaysPastDueNotWorse                 0.992796   
+NumberOfDependents                                  -0.010176   
+
+                                      NumberRealEstateLoansOrLines  \
+Unnamed: 0                                               -0.000666   
+SeriousDlqin2yrs                                         -0.007038   
+RevolvingUtilizationOfUnsecuredLines                      0.006235   
+age                                                       0.033150   
+NumberOfTime30-59DaysPastDueNotWorse                     -0.030565   
+DebtRatio                                                 0.120046   
+MonthlyIncome                                             0.124959   
+NumberOfOpenCreditLinesAndLoans                           0.433959   
+NumberOfTimes90DaysLate                                  -0.045205   
+NumberRealEstateLoansOrLines                              1.000000   
+NumberOfTime60-89DaysPastDueNotWorse                     -0.039722   
+NumberOfDependents                                        0.124684   
+
+                                      NumberOfTime60-89DaysPastDueNotWorse  \
+Unnamed: 0                                                       -0.000777   
+SeriousDlqin2yrs                                                  0.102261   
+RevolvingUtilizationOfUnsecuredLines                             -0.001048   
+age                                                              -0.057159   
+NumberOfTime30-59DaysPastDueNotWorse                              0.987005   
+DebtRatio                                                        -0.007533   
+MonthlyIncome                                                    -0.011116   
+NumberOfOpenCreditLinesAndLoans                                  -0.071077   
+NumberOfTimes90DaysLate                                           0.992796   
+NumberRealEstateLoansOrLines                                     -0.039722   
+NumberOfTime60-89DaysPastDueNotWorse                              1.000000   
+NumberOfDependents                                               -0.010922   
+
+                                      NumberOfDependents  
+Unnamed: 0                                     -0.000055  
+SeriousDlqin2yrs                                0.046048  
+RevolvingUtilizationOfUnsecuredLines            0.001557  
+age                                            -0.213303  
+NumberOfTime30-59DaysPastDueNotWorse           -0.002680  
+DebtRatio                                      -0.040673  
+MonthlyIncome                                   0.062647  
+NumberOfOpenCreditLinesAndLoans                 0.065322  
+NumberOfTimes90DaysLate                        -0.010176  
+NumberRealEstateLoansOrLines                    0.124684  
+NumberOfTime60-89DaysPastDueNotWorse           -0.010922  
+NumberOfDependents                              1.000000  
