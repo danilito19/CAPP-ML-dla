@@ -20,7 +20,7 @@ def read_data(file_name):
 
 def print_statistics(data):
     '''
-    Print statistics, correlation
+    Given a pandas dataframe, print dataframe statistics, correlation, and missing data.
     '''
     pd.set_option('display.width', 20)
     print '**** column names:  ', "\n", data.columns.values
@@ -38,14 +38,30 @@ def print_value_counts(data, col):
     '''
     print pd.value_counts(data[col])
 
-def visualize(data):
-    data.hist()
-    plt.savefig('hist.png')
+def visualize_all(data):
+    '''
+    Given a pandas dataframe, save a figure of dataframe column plots.
+    '''
 
-def impute_missing_all(data, method):
+    data.hist()
+    plt.savefig('all_data_hist.png')
+
+def visualize_by_group_mean(data, cols, group_by_col):
+
+    '''
+    Given a dataframe, an array of columns and a column to group by,
+    generate a plot of these grouped columns with mean of the group
+    '''
+
+    data[cols].groupby(group_by_col).mean().plot()
+    file_name = 'viz_by_' + group_by_col + '.png'
+    plt.savefig(file_name)
+
+
+def impute_missing_all(data):
     '''
     Find all columns with missing data and impute with the column's 
-    mean, median, or mode.
+    mean.
 
     To impute specific columns, use impute_missing_column.
     '''
@@ -53,7 +69,7 @@ def impute_missing_all(data, method):
     headers = list(data.columns)
     for name in headers:
         if data[name].isnull().values.any():
-            data[name] = data[name].fillna(data[name].method())
+            data[name] = data[name].fillna(data[name].mean())
 
     assert not data.isnull().values.any()
 
@@ -81,7 +97,7 @@ def log_column(data, column):
 
     Good to use when working with income data
 
-    Returns the name of the new column to include programmatically in features
+    Returns the name of the new column to include programmatically in list of features
     '''
 
     log_col = 'log_' + str(column)
@@ -89,17 +105,22 @@ def log_column(data, column):
 
     return log_col
 
-def create_age_bins(data, column, bins):
+def create_bins(data, column, bins, verbose=False):
     '''
     Given a continuous variable, create a new column in the dataframe
     that represents the bin in which the continuous variable falls into.
 
+    If verbose is True, print the value counts of each bin.
+
+    Returns the name of the new column to include programmatically in list of features
 
     '''
     new_col = 'bins_' + str(column)
 
     data[new_col] = pd.cut(data[column], bins=bins)
-    #print pd.value_counts(data['age_group'])
+
+    if verbose:
+        print pd.value_counts(data[new_col])
 
     return new_col
 
@@ -114,13 +135,25 @@ def convert_to_binary(data, column, zero_string):
     data[column] = data[column].apply(lambda x: 0 if sex == zero_string else 1)
 
 def scale_column(data, column):
+    '''
+    Given data and a specific column, apply a scale transformation to the column
+
+    Returns the name of the new column to include programmatically in list of features
+
+    '''
 
     scaled_col = 'scaled_' + str(column)
     data[scaled_col] = StandardScaler().fit_transform(data[column])
 
     return scaled_col
 
-def model_data(training_data, test_data, features, label):
+def model_logistic(training_data, test_data, features, label):
+
+    '''
+    With training and testing data and the data's features and label,
+    fit a logistic regression model and return predicted values on the test data.
+
+    '''
     
     model = LogisticRegression()
     model.fit(training_data[features], training_data[label])
@@ -128,29 +161,21 @@ def model_data(training_data, test_data, features, label):
     return predicted
 
 def evaluate_model(test_data, label, predicted_values):
+    '''
+    Compare the label of the test data to predicted values
+    and return an accuracy score.
+    '''
     return accuracy_score(predicted_values, test_data[label]) 
-
 
 def go(training_file):
     '''
-    run file
+    Run functions for specific data file
     '''
+    
     df = read_data(training_file)
 
     #print_statistics(df)
-    #visualize(df)
-
-    '''
-    put in func
-    cols = ['NumberOfDependents', 'SeriousDlqin2yrs']
-    age_means = df[cols].groupby("NumberOfDependents").mean()
-    print age_means
-    age_means.plot()
-    plt.savefig('means.png')
-
-    df[["age_bucket", "serious_dlqin2yrs"]].groupby("age_bucket").mean()
-
-    '''
+    #visualize_all(df)
 
     # I'm imputting num dependents with 0 bc its the mode
     impute_missing_column(df, ['NumberOfDependents'], 'mode')
@@ -167,7 +192,11 @@ def go(training_file):
 
 
     mybins = [0] + range(20, 80, 5) + [120]
-    age_bucket = create_age_bins(df, 'age', mybins)
+    age_bucket = create_bins(df, 'age', mybins)
+
+    visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
+    visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
+
 
 
     new_col = scale_column(df, 'MonthlyIncome')
@@ -187,7 +216,7 @@ def go(training_file):
     # split train and test data
     train, test = train_test_split(df, test_size = 0.2)
 
-    predicted_values = model_data(train, test, features, label)
+    predicted_values = model_logistic(train, test, features, label)
     print evaluate_model(test, label, predicted_values)
 
 
@@ -195,6 +224,10 @@ def go(training_file):
 
     '''
     Your task is to train one or more models on the training data and generate delinquency scores for the test data. 
+    
+    to get bins to Number
+    df['income_bins'] = pd.cut(df.monthly_income, bins=15, labels=False)
+
     '''
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
