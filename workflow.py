@@ -1,12 +1,13 @@
 import pandas as pd
+pd.options.mode.chained_assignment = None  # default='warn'
 import numpy as np 
 import matplotlib.pyplot as plt
 import pylab
-import requests
-import json
 import sys
+import random
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+from sklearn.cross_validation import train_test_split
 
 plt.rcParams["figure.figsize"] = [18.0, 8.0]
 
@@ -22,12 +23,12 @@ def print_statistics(data):
     '''
     pd.set_option('display.width', 20)
     print '**** column names:  ', "\n", data.columns.values
-    # print '**** top of the data: ', "\n",  data.head()
-    # print '**** dataframe shape: ', "\n", data.shape
-    # print '**** statistics: ', "\n", data.describe(include='all')
-    #print '**** MODE: ', "\n", data.mode()
-    # print '**** sum of null values by column: ', "\n", data.isnull().sum()
-    # print '**** correlation matrix: ', "\n", data.corr()
+    print '**** top of the data: ', "\n",  data.head()
+    print '**** dataframe shape: ', "\n", data.shape
+    print '**** statistics: ', "\n", data.describe(include='all')
+    print '**** MODE: ', "\n", data.mode()
+    print '**** sum of null values by column: ', "\n", data.isnull().sum()
+    print '**** correlation matrix: ', "\n", data.corr()
 
 def print_value_counts(data, col):
     '''
@@ -38,7 +39,7 @@ def print_value_counts(data, col):
 
 def visualize(data):
     data.hist()
-    plt.savefig('hist.jpg')
+    plt.savefig('hist.png')
 
 def impute_missing_all(data, method):
     '''
@@ -66,7 +67,12 @@ def impute_missing_column(data, columns, method):
     '''
 
     for col in columns:
-        data[col] = data[col].fillna(data[col].model())
+        if method == 'median':
+            data[col] = data[col].fillna(data[col].median())
+        elif method == 'mode':
+            data[col] = data[col].fillna(int(data[col].mode()[0]))
+        else:
+            data[col] = data[col].fillna(data[col].mean())
 
 def log_column(data, column):
     '''
@@ -75,7 +81,7 @@ def log_column(data, column):
     Good to use when working with income data
     '''
 
-    log_col = 'log_' + columm
+    log_col = 'log_' + str(column)
     data[log_col] = data[column].apply(lambda x: np.log(x + 1))
 
 def generate_categorical_features(data):
@@ -105,35 +111,23 @@ def go(training_file, testing_file):
     '''
     run file
     '''
-    train = read_data(training_file)
+    df = read_data(training_file)
 
-    # split train and test data
-    scramble_train = random.sample(train, len(train))
-    n_rows = len(scramble_train)
-    split = int(np.floor(n_rows * 0.8))
-    train, test = scramble_train[:split], scramble_train[split:]
+    #print_statistics(df)
+    #visualize(df)
 
-
-    #print_statistics(train)
-    # visualize(train)
     # I'm imputting num dependents with 0 bc its the mode
-    # fix method issue
-    #impute_missing_column(train, ['NumberOfDependents'], 'mode')
-
-    train['NumberOfDependents'] = train['NumberOfDependents'].fillna(train['NumberOfDependents'].mean())
+    impute_missing_column(df, ['NumberOfDependents'], 'mode')
 
     # impute MonthlyIncome with median
-    #impute_missing_column(train, ['MonthlyIncome'], method=median)
-    train['MonthlyIncome'] = train['MonthlyIncome'].fillna(int(train['MonthlyIncome'].median()))
+    impute_missing_column(df, ['MonthlyIncome'], 'mean')
+    #df['MonthlyIncome'] = df['MonthlyIncome'].fillna(int(df['MonthlyIncome'].median()))
 
-    # print not train.isnull().values.any()
-    # print train.isnull().sum()
-    # print not test.isnull().values.any()
-    # print test.isnull().sum()
+    print 'dataframe has no null values?:', not df.isnull().values.any()
+    print df.isnull().sum()
 
-
-    # does test data also have to have no nas ? ) 
     #log income
+    log_column(df, 'MonthlyIncome')
     
     features = ['RevolvingUtilizationOfUnsecuredLines', 
                 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome',
@@ -141,6 +135,12 @@ def go(training_file, testing_file):
                 'NumberRealEstateLoansOrLines', 
                 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
     label = 'SeriousDlqin2yrs'
+
+
+    # split train and test data
+    train, test = train_test_split(df, test_size = 0.2)
+
+
     #print model_data(train, test, features, label)
     
     #accuracy = evaluate_model(test, model)
