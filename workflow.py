@@ -106,7 +106,13 @@ def go(training_file, testing_file):
     run file
     '''
     train = read_data(training_file)
-    test = read_data(testing_file)
+
+    # split train and test data
+    scramble_train = random.sample(train, len(train))
+    n_rows = len(scramble_train)
+    split = int(np.floor(n_rows * 0.8))
+    train, test = scramble_train[:split], scramble_train[split:]
+
 
     #print_statistics(train)
     # visualize(train)
