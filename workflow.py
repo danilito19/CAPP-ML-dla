@@ -6,6 +6,7 @@ import requests
 import json
 import sys
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score
 
 plt.rcParams["figure.figsize"] = [18.0, 8.0]
 
@@ -95,6 +96,7 @@ def model_data(training_data, test_data, features, label):
     predicted = model.predict(test_data[features])
     print predicted
     #model.score(test_data[features], test_data[label])
+    #print accuracy_score(predicted, test_data[label]) 
 
 def evaluate_model(test_data, model):
     pass
@@ -142,6 +144,7 @@ def go(training_file, testing_file):
     #print train['MonthlyIncome'].median()
 
     # scaling 0 to 1
+    # convert binary male / female to 0 and 1
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file, test_file'''
 
