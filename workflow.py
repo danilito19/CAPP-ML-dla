@@ -9,6 +9,11 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
+from sklearn.feature_selection import RFE
+import warnings
+
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 plt.rcParams["figure.figsize"] = [18.0, 8.0]
 
@@ -23,6 +28,7 @@ def print_statistics(data):
     Given a pandas dataframe, print dataframe statistics, correlation, and missing data.
     '''
     pd.set_option('display.width', 20)
+    pd.set_option('display.float_format', lambda x: '%.3f' % x)
     print '**** column names:  ', "\n", data.columns.values
     print '**** top of the data: ', "\n",  data.head()
     print '**** dataframe shape: ', "\n", data.shape
@@ -150,15 +156,19 @@ def scale_column(data, column):
 def model_logistic(training_data, test_data, features, label):
 
     '''
-    With training and testing data and the data's features and label,
-    fit a logistic regression model and return predicted values on the test data.
+    With training and testing data and the data's features and label, select the best
+    features with recursive feature elimination method, then
+    fit a logistic regression model and return predicted values on the test data
+    and a list of the best features used.
 
     '''
     
     model = LogisticRegression()
-    model.fit(training_data[features], training_data[label])
-    predicted = model.predict(test_data[features])
-    return predicted
+    rfe = RFE(model)
+    rfe = rfe.fit(training_data[features], training_data[label])
+    predicted = rfe.predict(test_data[features])
+    best_features = rfe.get_support(indices=True)
+    return predicted, best_features
 
 def evaluate_model(test_data, label, predicted_values):
     '''
@@ -177,30 +187,27 @@ def go(training_file):
     #print_statistics(df)
     #visualize_all(df)
 
-    # I'm imputting num dependents with 0 bc its the mode
+    # impute dependents with mode
     impute_missing_column(df, ['NumberOfDependents'], 'mode')
 
     # impute MonthlyIncome with median
     impute_missing_column(df, ['MonthlyIncome'], 'mean')
-    #df['MonthlyIncome'] = df['MonthlyIncome'].fillna(int(df['MonthlyIncome'].median()))
-
-    # print 'dataframe has no null values?:', not df.isnull().values.any()
-    # print df.isnull().sum()
 
     #log income
     new_log_col = log_column(df, 'MonthlyIncome')
 
 
-    mybins = [0] + range(20, 80, 5) + [120]
-    age_bucket = create_bins(df, 'age', mybins)
+    age_bins = [0] + range(20, 80, 5) + [120]
+    age_bucket = create_bins(df, 'age', age_bins)
+
+    income_bins = range(0, 10000, 1000) + [df['MonthlyIncome'].max()]
+    income_bucket = create_bins(df, 'MonthlyIncome', income_bins)
 
     visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
     visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
+    visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
 
-
-
-    new_col = scale_column(df, 'MonthlyIncome')
-
+    scaled_income = scale_column(df, 'MonthlyIncome')
 
     features = ['RevolvingUtilizationOfUnsecuredLines', 
                 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome',
@@ -208,23 +215,21 @@ def go(training_file):
                 'NumberRealEstateLoansOrLines', 
                 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
 
-    #features = features + [new_log_col] + [age_bucket]
-    features = features + [new_log_col] + [new_col]
+    #features = features + [new_log_col] + [age_bucket] + [income_bucket]
+    features = features + [new_log_col] + [scaled_income]
 
     label = 'SeriousDlqin2yrs'
 
     # split train and test data
     train, test = train_test_split(df, test_size = 0.2)
 
-    predicted_values = model_logistic(train, test, features, label)
-    print evaluate_model(test, label, predicted_values)
+    predicted_values, best_features = model_logistic(train, test, features, label)
+    print ''' THE MODEL'S ACCURACY SCORE IS: ''', evaluate_model(test, label, predicted_values)
+    print
+    print 'MODEL WAS BUILT WITH FEATURES : ', [features[i] for i in best_features]
 
 
-    # FIND BEST MIX OF FEATURES
-
-    '''
-    Your task is to train one or more models on the training data and generate delinquency scores for the test data. 
-    
+    '''    
     to get bins to Number
     df['income_bins'] = pd.cut(df.monthly_income, bins=15, labels=False)
 
