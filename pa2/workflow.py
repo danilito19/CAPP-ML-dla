@@ -77,8 +77,6 @@ def impute_missing_all(data):
         if data[name].isnull().values.any():
             data[name] = data[name].fillna(data[name].mean())
 
-    assert not data.isnull().values.any()
-
 def impute_missing_column(data, columns, method):
     '''
     Given a list of specific data columns, impute missing
@@ -123,7 +121,7 @@ def create_bins(data, column, bins, verbose=False):
     '''
     new_col = 'bins_' + str(column)
 
-    data[new_col] = pd.cut(data[column], bins=bins)
+    data[new_col] = pd.cut(data[column], bins=bins, include_lowest=True, labels=False)
 
     if verbose:
         print pd.value_counts(data[new_col])
@@ -183,15 +181,16 @@ def go(training_file):
     '''
     
     df = read_data(training_file)
-
-    #print_statistics(df)
-    #visualize_all(df)
+    print_statistics(df)
+    visualize_all(df)
 
     # impute dependents with mode
     impute_missing_column(df, ['NumberOfDependents'], 'mode')
 
     # impute MonthlyIncome with median
     impute_missing_column(df, ['MonthlyIncome'], 'mean')
+
+    assert not df.isnull().values.any()
 
     #log income
     new_log_col = log_column(df, 'MonthlyIncome')
@@ -215,25 +214,21 @@ def go(training_file):
                 'NumberRealEstateLoansOrLines', 
                 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
 
-    #features = features + [new_log_col] + [age_bucket] + [income_bucket]
-    features = features + [new_log_col] + [scaled_income]
+    features = features + [new_log_col] + [age_bucket] + [income_bucket] + [scaled_income]
 
     label = 'SeriousDlqin2yrs'
+
+    assert not df.isnull().values.any()
 
     # split train and test data
     train, test = train_test_split(df, test_size = 0.2)
 
     predicted_values, best_features = model_logistic(train, test, features, label)
-    print ''' THE MODEL'S ACCURACY SCORE IS: ''', evaluate_model(test, label, predicted_values)
+    print 'THE MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
     print
-    print 'MODEL WAS BUILT WITH FEATURES : ', [features[i] for i in best_features]
+    print 'MODEL WAS BUILT WITH FEATURES : ', [features[i] for i in best_features] 
 
 
-    '''    
-    to get bins to Number
-    df['income_bins'] = pd.cut(df.monthly_income, bins=15, labels=False)
-
-    '''
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
 
