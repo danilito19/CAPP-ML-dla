@@ -1,0 +1,10 @@
+logistic regression took 9.67979502678 seconds to fit
+THE LOGISTIC MODEL ACCURACY SCORE IS: 0.9317
+
+MODEL WAS BUILT WITH FEATURES :  ['NumberOfTime30-59DaysPastDueNotWorse', 'NumberOfTimes90DaysLate', 'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents', 'log_MonthlyIncome', 'bins_MonthlyIncome', 'scaled_MonthlyIncome']
+decision tree took 0.782054185867 seconds to fit
+THE DECISION TREE MODEL ACCURACY SCORE IS: 0.934033333333
+linear svm took 31.9090681076 seconds to fit
+THE LINEAR SVM MODEL ACCURACY SCORE IS: 0.9299
+random forest took 20.6235349178 seconds to fit
+THE LINEAR SVM MODEL ACCURACY SCORE IS: 0.935366666667

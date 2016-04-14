@@ -6,11 +6,12 @@ import pylab
 import sys
 import random
 from sklearn.linear_model import LogisticRegression
+from sklearn import tree, svm, naive_bayes, neighbors, ensemble
 from sklearn.metrics import accuracy_score
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.feature_selection import RFE
-import warnings
+from time import time
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -160,13 +161,51 @@ def model_logistic(training_data, test_data, features, label):
     and a list of the best features used.
 
     '''
-    
+    start = time()
     model = LogisticRegression()
     rfe = RFE(model)
     rfe = rfe.fit(training_data[features], training_data[label])
     predicted = rfe.predict(test_data[features])
     best_features = rfe.get_support(indices=True)
+    elapsed_time = time() - start
+    print 'logistic regression took %s seconds to fit' %elapsed_time
     return predicted, best_features
+
+def model_decision_tree(training_data, test_data, features, label):
+
+    start = time()
+    cl = tree.DecisionTreeClassifier(max_depth=8)
+    cl.fit(training_data[features], training_data[label])
+    predicted = cl.predict(test_data[features])
+
+    elapsed_time = time() - start
+    print 'decision tree took %s seconds to fit' %elapsed_time
+
+    return predicted
+
+def model_svm_linear(training_data, test_data, features, label):
+
+    start = time()
+    cl = svm.LinearSVC()
+    cl.fit(training_data[features], training_data[label])
+    predicted = cl.predict(test_data[features])
+
+    elapsed_time = time() - start
+    print 'linear svm took %s seconds to fit' %elapsed_time
+
+    return predicted
+
+def model_random_forest(training_data, test_data, features, label):
+
+    start = time()
+    cl = ensemble.RandomForestClassifier(n_estimators=100, max_depth=8, criterion='entropy')
+    cl.fit(training_data[features], training_data[label])
+    predicted = cl.predict(test_data[features])
+
+    elapsed_time = time() - start
+    print 'random forest took %s seconds to fit' %elapsed_time
+
+    return predicted
 
 def evaluate_model(test_data, label, predicted_values):
     '''
@@ -181,8 +220,8 @@ def go(training_file):
     '''
     
     df = read_data(training_file)
-    print_statistics(df)
-    visualize_all(df)
+    #print_statistics(df)
+    #visualize_all(df)
 
     # impute dependents with mode
     impute_missing_column(df, ['NumberOfDependents'], 'mode')
@@ -202,9 +241,9 @@ def go(training_file):
     income_bins = range(0, 10000, 1000) + [df['MonthlyIncome'].max()]
     income_bucket = create_bins(df, 'MonthlyIncome', income_bins)
 
-    visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
-    visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
-    visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
+    #visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
+    #visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
+    #visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
 
     scaled_income = scale_column(df, 'MonthlyIncome')
 
@@ -224,10 +263,18 @@ def go(training_file):
     train, test = train_test_split(df, test_size = 0.2)
 
     predicted_values, best_features = model_logistic(train, test, features, label)
-    print 'THE MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
+    print 'THE LOGISTIC MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
     print
     print 'MODEL WAS BUILT WITH FEATURES : ', [features[i] for i in best_features] 
 
+    predicted_values = model_decision_tree(train, test, features, label)
+    print 'THE DECISION TREE MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
+
+    predicted_values = model_svm_linear(train, test, features, label)
+    print 'THE LINEAR SVM MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
+
+    predicted_values = model_random_forest(train, test, features, label)
+    print 'THE LINEAR SVM MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
 
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
