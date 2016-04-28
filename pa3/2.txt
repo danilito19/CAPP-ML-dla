@@ -1,0 +1,107 @@
+STARTING MODELS FOR LR
+STARTING LR WITH PARAMETERS LogisticRegression(C=1e-05, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=1e-05, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 0.365716934204 seconds to fit and get proba
+ACCURACY: 0.931466666667, PRECISION: 0.0, REACLL: 0.0, F1: 0.0
+STARTING LR WITH PARAMETERS LogisticRegression(C=1e-05, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=1e-05, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 0.928089857101 seconds to fit and get proba
+ACCURACY: 0.9318, PRECISION: 0.592592592593, REACLL: 0.0155642023346, F1: 0.0303317535545
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.0001, class_weight=None, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=100,
+          multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+          solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+LogisticRegression(C=0.0001, class_weight=None, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=100,
+          multi_class='ovr', n_jobs=1, penalty='l1', random_state=None,
+          solver='liblinear', tol=0.0001, verbose=0, warm_start=False) took 0.338101148605 seconds to fit and get proba
+ACCURACY: 0.931466666667, PRECISION: 0.0, REACLL: 0.0, F1: 0.0
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.0001, class_weight=None, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=100,
+          multi_class='ovr', n_jobs=1, penalty='l2', random_state=None,
+          solver='liblinear', tol=0.0001, verbose=0, warm_start=False)
+LogisticRegression(C=0.0001, class_weight=None, dual=False,
+          fit_intercept=True, intercept_scaling=1, max_iter=100,
+          multi_class='ovr', n_jobs=1, penalty='l2', random_state=None,
+          solver='liblinear', tol=0.0001, verbose=0, warm_start=False) took 0.950982093811 seconds to fit and get proba
+ACCURACY: 0.9318, PRECISION: 0.586206896552, REACLL: 0.0165369649805, F1: 0.0321665089877
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.001, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.001, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 0.580835819244 seconds to fit and get proba
+ACCURACY: 0.931833333333, PRECISION: 0.59649122807, REACLL: 0.0165369649805, F1: 0.0321817321344
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.001, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.001, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 1.83926701546 seconds to fit and get proba
+ACCURACY: 0.931766666667, PRECISION: 0.576271186441, REACLL: 0.0165369649805, F1: 0.0321513002364
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.01, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.01, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 8.88174915314 seconds to fit and get proba
+ACCURACY: 0.9318, PRECISION: 0.533783783784, REACLL: 0.0384241245136, F1: 0.0716878402904
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.01, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.01, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 2.45280790329 seconds to fit and get proba
+ACCURACY: 0.931466666667, PRECISION: 0.5, REACLL: 0.0252918287938, F1: 0.0481481481481
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 10.196160078 seconds to fit and get proba
+ACCURACY: 0.9319, PRECISION: 0.539877300613, REACLL: 0.0428015564202, F1: 0.0793150067598
+STARTING LR WITH PARAMETERS LogisticRegression(C=0.1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=0.1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 2.76191806793 seconds to fit and get proba
+ACCURACY: 0.9314, PRECISION: 0.491228070175, REACLL: 0.0272373540856, F1: 0.0516129032258
+STARTING LR WITH PARAMETERS LogisticRegression(C=1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l1', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False) took 3.72320795059 seconds to fit and get proba
+ACCURACY: 0.931733333333, PRECISION: 0.527397260274, REACLL: 0.0374513618677, F1: 0.0699364214351
+STARTING LR WITH PARAMETERS LogisticRegression(C=1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,
+          verbose=0, warm_start=False)
+LogisticRegression(C=1, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class='ovr', n_jobs=1,
+          penalty='l2', random_state=None, solver='liblinear', tol=0.0001,

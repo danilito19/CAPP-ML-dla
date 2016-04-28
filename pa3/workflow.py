@@ -30,7 +30,9 @@ clfs = {'RF': RandomForestClassifier(n_estimators=50, n_jobs=-1),
     'SVM': svm.SVC(kernel='linear', probability=True, random_state=0),
     'NB': GaussianNB(),
     'DT': DecisionTreeClassifier(),
-    'KNN': KNeighborsClassifier(n_neighbors=3) 
+    'KNN': KNeighborsClassifier(n_neighbors=3),
+    'GB': GradientBoostingClassifier(learning_rate=0.05, subsample=0.5, max_depth=6, n_estimators=10)
+
         }
 
 grid = { 
@@ -39,6 +41,7 @@ grid = {
 'NB' : {},
 'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50,100], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
 'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1,10],'kernel':['linear']},
+'GB': {'n_estimators': [1,10,100,1000,10000], 'learning_rate' : [0.001,0.01,0.05,0.1,0.5],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20,50,100]},
 'KNN' :{'n_neighbors': [1,5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
@@ -235,7 +238,13 @@ def evaluate_model(test_data, label, predicted_values):
     Compare the label of the test data to predicted values
     and return an accuracy score.
     '''
-    return accuracy_score(predicted_values, test_data[label]) 
+    accuracy = accuracy_score(test_data[label], predicted_values) 
+    precision = precision_score(test_data[label], predicted_values) 
+    recall = recall_score(test_data[label], predicted_values) 
+    # f1 calculation is F1 = 2 * (precision * recall) / (precision + recall)
+    f1 = f1_score(test_data[label], predicted_values) 
+
+    return accuracy, precision, recall, f1
 
 def plot_precision_recall_n(y_true, y_prob, model_name):
 
@@ -312,10 +321,18 @@ def go(training_file):
     assert not df.isnull().values.any()
 
     # split train and test data
+    ''' K FOLD SPLIT '''
     train, test = train_test_split(df, test_size = 0.2)
 
-    models_to_run=['KNN','RF']
-    #,'LR','NB','DT', 'SVM'
+    models_to_run=['LR','NB', 'SVM', 'GB', 'RF']
+    #,'LR','NB','DT', 'SVM', 'GB', 'RF'
+
+    best_model = ''
+    best_f1 = 0
+    best_params = ''
+
+    start_loop = time()
+
 
     for index,clf in enumerate([clfs[x] for x in models_to_run]):
         running_model = models_to_run[index]
@@ -330,36 +347,28 @@ def go(training_file):
                 y_pred_probs = clf.predict_proba(test[features])
                 elapsed_time = time() - start
                 print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
+                predicted_values = clf.predict(test[features])
+                accuracy, precision, recall, f1 = evaluate_model(test, label, predicted_values)
+                print 'ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
+                if f1 > best_f1:
+                    best_f1 = f1
+                    best_model = running_model
+                    best_params = clf
                 #threshold = np.sort(y_pred_probs)[::-1][int(.05*len(y_pred_probs))]
                 #print threshold
                 #print precision_at_k(test[label],y_pred_probs,.05)
-                plot_precision_recall_n(test[label],y_pred_probs,clf)
+                #plot_precision_recall_n(test[label],y_pred_probs,clf)
+
             except IndexError, e:
                 print 'Error:',e
                 continue
+        print 'ENDED MODELING FOR', running_model
      
+    end_loop = time() - start_loop
+    print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
+    print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
 
 
-
-
-
-
-
-    '''
-    predicted_values, best_features = model_logistic(train, test, features, label)
-    print 'THE LOGISTIC MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
-    print
-    print 'MODEL WAS BUILT WITH FEATURES : ', [features[i] for i in best_features] 
-
-    predicted_values = model_decision_tree(train, test, features, label)
-    print 'THE DECISION TREE MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
-
-    predicted_values = model_svm_linear(train, test, features, label)
-    print 'THE LINEAR SVM MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
-
-    predicted_values = model_random_forest(train, test, features, label)
-    print 'THE LINEAR SVM MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
-    '''
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
 
