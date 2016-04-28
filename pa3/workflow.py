@@ -5,18 +5,42 @@ import matplotlib.pyplot as plt
 import pylab
 import sys
 import random
-from sklearn.linear_model import LogisticRegression
-from sklearn import tree, svm, naive_bayes, neighbors, ensemble
-from sklearn.metrics import accuracy_score
+from sklearn import svm, ensemble
+from sklearn.ensemble import RandomForestClassifier, ExtraTreesClassifier, GradientBoostingClassifier, AdaBoostClassifier
+from sklearn.linear_model import LogisticRegression, Perceptron, SGDClassifier, OrthogonalMatchingPursuit, RandomizedLogisticRegression
+from sklearn.neighbors.nearest_centroid import NearestCentroid
+from sklearn.naive_bayes import GaussianNB, MultinomialNB, BernoulliNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import *
 from sklearn.cross_validation import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import *
 from sklearn.feature_selection import RFE
+from sklearn.grid_search import ParameterGrid
 from time import time
 
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 plt.rcParams["figure.figsize"] = [18.0, 8.0]
+
+
+clfs = {'RF': RandomForestClassifier(n_estimators=50, n_jobs=-1),
+    'LR': LogisticRegression(penalty='l1', C=1e5),
+    'SVM': svm.SVC(kernel='linear', probability=True, random_state=0),
+    'NB': GaussianNB(),
+    'DT': DecisionTreeClassifier(),
+    'KNN': KNeighborsClassifier(n_neighbors=3) 
+        }
+
+grid = { 
+'RF':{'n_estimators': [1,10,100,1000,10000], 'max_depth': [1,5,10,20,50,100], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
+'LR': { 'penalty': ['l1','l2'], 'C': [0.00001,0.0001,0.001,0.01,0.1,1,10]},
+'NB' : {},
+'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50,100], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
+'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1,10],'kernel':['linear']},
+'KNN' :{'n_neighbors': [1,5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
+       }
 
 def read_data(file_name):
     '''
@@ -63,7 +87,6 @@ def visualize_by_group_mean(data, cols, group_by_col):
     data[cols].groupby(group_by_col).mean().plot()
     file_name = 'viz_by_' + group_by_col + '.png'
     plt.savefig(file_name)
-
 
 def impute_missing_all(data):
     '''
@@ -214,6 +237,33 @@ def evaluate_model(test_data, label, predicted_values):
     '''
     return accuracy_score(predicted_values, test_data[label]) 
 
+def plot_precision_recall_n(y_true, y_prob, model_name):
+
+    y_score = y_prob
+    precision_curve, recall_curve, pr_thresholds = precision_recall_curve(y_true, y_score)
+    precision_curve = precision_curve[:-1]
+    recall_curve = recall_curve[:-1]
+    pct_above_per_thresh = []
+    number_scored = len(y_score)
+    for value in pr_thresholds:
+        num_above_thresh = len(y_score[y_score>=value])
+        pct_above_thresh = num_above_thresh / float(number_scored)
+        pct_above_per_thresh.append(pct_above_thresh)
+    pct_above_per_thresh = np.array(pct_above_per_thresh)
+    plt.clf()
+    fig, ax1 = plt.subplots()
+    ax1.plot(pct_above_per_thresh, precision_curve, 'b')
+    ax1.set_xlabel('percent of population')
+    ax1.set_ylabel('precision', color='b')
+    ax2 = ax1.twinx()
+    ax2.plot(pct_above_per_thresh, recall_curve, 'r')
+    ax2.set_ylabel('recall', color='r')
+    
+    name = model_name
+    plt.title(name)
+    #plt.savefig(name)
+    plt.show()
+
 def go(training_file):
     '''
     Run functions for specific data file
@@ -222,6 +272,8 @@ def go(training_file):
     df = read_data(training_file)
     #print_statistics(df)
     #visualize_all(df)
+
+    ''' SPLIT TEST / TRAIN BEFORE IMPUTING '''
 
     # impute dependents with mode
     impute_missing_column(df, ['NumberOfDependents'], 'mode')
@@ -262,6 +314,38 @@ def go(training_file):
     # split train and test data
     train, test = train_test_split(df, test_size = 0.2)
 
+    models_to_run=['KNN','RF']
+    #,'LR','NB','DT', 'SVM'
+
+    for index,clf in enumerate([clfs[x] for x in models_to_run]):
+        running_model = models_to_run[index]
+        print 'STARTING MODELS FOR', running_model
+        parameter_values = grid[running_model]
+        for p in ParameterGrid(parameter_values):
+            try:
+                clf.set_params(**p)
+                print 'STARTING %s WITH PARAMETERS %s' % (running_model, clf)
+                start = time()
+                clf.fit(train[features], train[label])
+                y_pred_probs = clf.predict_proba(test[features])
+                elapsed_time = time() - start
+                print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
+                #threshold = np.sort(y_pred_probs)[::-1][int(.05*len(y_pred_probs))]
+                #print threshold
+                #print precision_at_k(test[label],y_pred_probs,.05)
+                plot_precision_recall_n(test[label],y_pred_probs,clf)
+            except IndexError, e:
+                print 'Error:',e
+                continue
+     
+
+
+
+
+
+
+
+    '''
     predicted_values, best_features = model_logistic(train, test, features, label)
     print 'THE LOGISTIC MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
     print
@@ -275,7 +359,7 @@ def go(training_file):
 
     predicted_values = model_random_forest(train, test, features, label)
     print 'THE LINEAR SVM MODEL ACCURACY SCORE IS:',  evaluate_model(test, label, predicted_values)
-
+    '''
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
 
