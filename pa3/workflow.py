@@ -1,4 +1,5 @@
 import pandas as pd
+import csv
 pd.options.mode.chained_assignment = None  # default='warn'
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -18,6 +19,7 @@ from sklearn.preprocessing import *
 from sklearn.feature_selection import RFE
 from sklearn.grid_search import ParameterGrid
 from multiprocessing import Pool
+from functools import partial
 from time import time
 
 import warnings
@@ -198,41 +200,6 @@ def model_logistic(training_data, test_data, features, label):
     print 'logistic regression took %s seconds to fit' %elapsed_time
     return predicted, best_features
 
-def model_decision_tree(training_data, test_data, features, label):
-
-    start = time()
-    cl = tree.DecisionTreeClassifier(max_depth=8)
-    cl.fit(training_data[features], training_data[label])
-    predicted = cl.predict(test_data[features])
-
-    elapsed_time = time() - start
-    print 'decision tree took %s seconds to fit' %elapsed_time
-
-    return predicted
-
-def model_svm_linear(training_data, test_data, features, label):
-
-    start = time()
-    cl = svm.LinearSVC()
-    cl.fit(training_data[features], training_data[label])
-    predicted = cl.predict(test_data[features])
-
-    elapsed_time = time() - start
-    print 'linear svm took %s seconds to fit' %elapsed_time
-
-    return predicted
-
-def model_random_forest(training_data, test_data, features, label):
-
-    start = time()
-    cl = ensemble.RandomForestClassifier(n_estimators=100, max_depth=8, criterion='entropy')
-    cl.fit(training_data[features], training_data[label])
-    predicted = cl.predict(test_data[features])
-
-    elapsed_time = time() - start
-    print 'random forest took %s seconds to fit' %elapsed_time
-
-    return predicted
 
 def evaluate_model(test_data, label, predicted_values):
     '''
@@ -247,34 +214,61 @@ def evaluate_model(test_data, label, predicted_values):
 
     return accuracy, precision, recall, f1
 
-def plot_precision_recall_n(y_true, y_prob, model_name):
+def plot_precision_recall_n(y_true, y_prob, model_name, model_params):
 
-    y_score = y_prob
-    precision_curve, recall_curve, pr_thresholds = precision_recall_curve(y_true, y_score)
-    precision_curve = precision_curve[:-1]
-    recall_curve = recall_curve[:-1]
-    pct_above_per_thresh = []
-    number_scored = len(y_score)
-    for value in pr_thresholds:
-        num_above_thresh = len(y_score[y_score>=value])
-        pct_above_thresh = num_above_thresh / float(number_scored)
-        pct_above_per_thresh.append(pct_above_thresh)
-    pct_above_per_thresh = np.array(pct_above_per_thresh)
+    precision_curve, recall_curve, pr_thresholds = precision_recall_curve(y_true, y_prob)
+    precision = precision_curve[:-1]
+    recall = recall_curve[:-1]
     plt.clf()
-    fig, ax1 = plt.subplots()
-    ax1.plot(pct_above_per_thresh, precision_curve, 'b')
-    ax1.set_xlabel('percent of population')
-    ax1.set_ylabel('precision', color='b')
-    ax2 = ax1.twinx()
-    ax2.plot(pct_above_per_thresh, recall_curve, 'r')
-    ax2.set_ylabel('recall', color='r')
-    
-    name = model_name
-    plt.title(name)
-    #plt.savefig(name)
-    plt.show()
+    plt.plot(recall, precision, label=model_params)
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.ylim([0.0, 1.05])
+    plt.xlim([0.0, 1.0])
+    plt.title("Precision Recall Curve for %s" %model_name)
+    plt.savefig(model_name)
+    #plt.show()
 
-# def magic_loop():
+# def magic_loop(model, train, test, features, label):
+
+#     best_model = ''
+#     best_f1 = 0
+#     best_params = ''
+
+#     start_loop = time()
+
+#     ''' add random state?'''
+#     clf = clfs[model]
+#     print 'STARTING MODELS FOR', model
+#     parameter_values = grid[model]
+#     for p in ParameterGrid(parameter_values):
+#         clf.set_params(**p)
+#         print 'STARTING %s WITH PARAMETERS %s' % (model, clf)
+#         start = time()
+#         clf.fit(train[features], train[label])
+#         y_pred_probs = clf.predict_proba(test[features])
+#         elapsed_time = time() - start
+#         print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
+#         predicted_values = clf.predict(test[features])
+#         accuracy, precision, recall, f1 = evaluate_model(test, label, predicted_values)
+#         print 'ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
+#         if f1 > best_f1:
+#             best_f1 = f1
+#             best_model = model
+#             best_params = clf
+#         print 'ENDED %s WITH PARAMETERS %s' % (model, clf)
+
+#         #threshold = np.sort(y_pred_probs)[::-1][int(.05*len(y_pred_probs))]
+#         #print threshold
+#         #print precision_at_k(test[label],y_pred_probs,.05)
+#         #plot_precision_recall_n(test[label],y_pred_probs,clf)
+
+#     print 'ENDED MODELING FOR', model
+     
+#     end_loop = time() - start_loop
+#     print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
+#     print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
+
 
 
 def go(training_file):
@@ -328,26 +322,31 @@ def go(training_file):
     ''' K FOLD SPLIT '''
     train, test = train_test_split(df, test_size = 0.2)
 
-    models_to_run=['LR']
+    # create results-table csv
+
+
+    models_to_run=['RF']
     #,'LR','NB','DT', 'SVM', 'GB', 'RF'
+
     best_model = ''
     best_f1 = 0
     best_params = ''
 
-    start_loop = time()
+    with open('results-table.csv', 'wb') as csvfile:
+        w = csv.writer(csvfile, delimiter=',')
+        w.writerow(['MODEL', 'PARAMETERS', 'ACCURACY', 'PRECISION', 'RECALL'])
 
-
-    for index,clf in enumerate([clfs[x] for x in models_to_run]):
-        running_model = models_to_run[index]
-        print 'STARTING MODELS FOR', running_model
-        parameter_values = grid[running_model]
-        for p in ParameterGrid(parameter_values):
-            try:
+        start_loop = time()
+        for index,clf in enumerate([clfs[x] for x in models_to_run]):
+            running_model = models_to_run[index]
+            print 'STARTING MODELS FOR', running_model
+            parameter_values = grid[running_model]
+            for p in ParameterGrid(parameter_values):
                 clf.set_params(**p)
                 print 'STARTING %s WITH PARAMETERS %s' % (running_model, clf)
                 start = time()
                 clf.fit(train[features], train[label])
-                y_pred_probs = clf.predict_proba(test[features])
+                y_pred_probs = clf.predict_proba(test[features])[:,1] #second col only for class = 1
                 elapsed_time = time() - start
                 print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
                 predicted_values = clf.predict(test[features])
@@ -357,24 +356,21 @@ def go(training_file):
                     best_f1 = f1
                     best_model = running_model
                     best_params = clf
-                #threshold = np.sort(y_pred_probs)[::-1][int(.05*len(y_pred_probs))]
-                #print threshold
-                #print precision_at_k(test[label],y_pred_probs,.05)
-                #plot_precision_recall_n(test[label],y_pred_probs,clf)
-
-            except IndexError, e:
-                print 'Error:',e
-                continue
-        print 'ENDED MODELING FOR', running_model
-     
-    end_loop = time() - start_loop
-    print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
-    print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
+                print 'ENDED %s WITH PARAMETERS %s' % (running_model, running_model)
+                plot_precision_recall_n(test[label],y_pred_probs,running_model, clf)
+                w.writerow([running_model, clf, features, accuracy, precision, recall])
+            print 'ENDED MODELING FOR', running_model
+         
+        end_loop = time() - start_loop
+        print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
+        print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
 
 
     # Run the loop with multiprocessing pool to speeed up the process
     # p = Pool(5)
-    # print p.map(magic_loop(), models_to_run)
+    # f = partial(magic_loop, train, test, features, label)
+    # print p.map(f, models_to_run)
+    # p.close()
 
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
