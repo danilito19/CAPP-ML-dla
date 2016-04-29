@@ -17,6 +17,7 @@ from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import *
 from sklearn.feature_selection import RFE
 from sklearn.grid_search import ParameterGrid
+from multiprocessing import Pool
 from time import time
 
 import warnings
@@ -273,6 +274,9 @@ def plot_precision_recall_n(y_true, y_prob, model_name):
     #plt.savefig(name)
     plt.show()
 
+# def magic_loop():
+
+
 def go(training_file):
     '''
     Run functions for specific data file
@@ -324,9 +328,8 @@ def go(training_file):
     ''' K FOLD SPLIT '''
     train, test = train_test_split(df, test_size = 0.2)
 
-    models_to_run=['LR','NB', 'SVM', 'GB', 'RF']
+    models_to_run=['LR']
     #,'LR','NB','DT', 'SVM', 'GB', 'RF'
-
     best_model = ''
     best_f1 = 0
     best_params = ''
@@ -368,6 +371,10 @@ def go(training_file):
     print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
     print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
 
+
+    # Run the loop with multiprocessing pool to speeed up the process
+    # p = Pool(5)
+    # print p.map(magic_loop(), models_to_run)
 
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
