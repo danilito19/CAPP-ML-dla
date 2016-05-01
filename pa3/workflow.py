@@ -39,12 +39,12 @@ clfs = {'RF': RandomForestClassifier(n_estimators=50, n_jobs=-1),
         }
 
 grid = { 
-'RF':{'n_estimators': [1,10,100,1000,10000], 'max_depth': [1,5,10,20,50,100], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
-'LR': { 'penalty': ['l1','l2'], 'C': [0.00001,0.0001,0.001,0.01,0.1,1,10]},
+'RF':{'n_estimators': [1,10,100], 'max_depth': [1,5,10,20,50,75], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
+'LR': { 'penalty': ['l1','l2'], 'C': [0.00001,0.0001,0.001,0.01,0.1,1,5]},
 'NB' : {},
-'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50,100], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
-'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1,10],'kernel':['linear']},
-'GB': {'n_estimators': [1,10,100,1000,10000], 'learning_rate' : [0.001,0.01,0.05,0.1,0.5],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20,50,100]},
+'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
+'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1],'kernel':['linear']},
+'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20,50]},
 'KNN' :{'n_neighbors': [1,5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
@@ -119,11 +119,29 @@ def impute_missing_column(data, columns, method):
 
     for col in columns:
         if method == 'median':
-            data[col] = data[col].fillna(data[col].median())
+            median = data[col].median()
+            data[col] = data[col].fillna(median)
+            return median
         elif method == 'mode':
-            data[col] = data[col].fillna(int(data[col].mode()[0]))
+            mode = int(data[col].mode()[0])
+            data[col] = data[col].fillna(mode)
+            return mode 
         else:
-            data[col] = data[col].fillna(data[col].mean())
+            mean = data[col].mean()
+            data[col] = data[col].fillna(mean)
+            return mean 
+
+
+def impute_col_with_val(data, columns, value):
+    '''
+    Given data, a list of columns, and a value, impute the missing data of 
+    given column with the value.
+
+    Good to use to impute test data with training data's mean, median, or mode
+
+    '''
+    for col in columns:
+        data[col] = data[col].fillna(value)
 
 def log_column(data, column):
     '''
@@ -214,61 +232,41 @@ def evaluate_model(test_data, label, predicted_values):
 
     return accuracy, precision, recall, f1
 
-def plot_precision_recall_n(y_true, y_prob, model_name, model_params):
+def plot_precision_recall(y_true, y_prob, model_name, model_params):
 
     precision_curve, recall_curve, pr_thresholds = precision_recall_curve(y_true, y_prob)
     precision = precision_curve[:-1]
     recall = recall_curve[:-1]
     plt.clf()
-    plt.plot(recall, precision, label=model_params)
+    plt.plot(recall, precision, label='%s' % model_params)
     plt.xlabel('Recall')
     plt.ylabel('Precision')
-    plt.ylim([0.0, 1.05])
+    plt.ylim([0.0, 1.0])
     plt.xlim([0.0, 1.0])
     plt.title("Precision Recall Curve for %s" %model_name)
     plt.savefig(model_name)
+    plt.legend(loc="lower right")
     #plt.show()
 
-# def magic_loop(model, train, test, features, label):
+def plot_precision_recall_all_models(y_true, y_prob_dict):
 
-#     best_model = ''
-#     best_f1 = 0
-#     best_params = ''
+    plt.clf()
 
-#     start_loop = time()
+    for model_name, y_prob in y_prob_dict.items():
+        precision_curve, recall_curve, pr_thresholds = precision_recall_curve(y_true, y_prob)
+        precision = precision_curve[:-1]
+        recall = recall_curve[:-1]
+        plt.plot(recall, precision, label='%s' %model_name)
 
-#     ''' add random state?'''
-#     clf = clfs[model]
-#     print 'STARTING MODELS FOR', model
-#     parameter_values = grid[model]
-#     for p in ParameterGrid(parameter_values):
-#         clf.set_params(**p)
-#         print 'STARTING %s WITH PARAMETERS %s' % (model, clf)
-#         start = time()
-#         clf.fit(train[features], train[label])
-#         y_pred_probs = clf.predict_proba(test[features])
-#         elapsed_time = time() - start
-#         print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
-#         predicted_values = clf.predict(test[features])
-#         accuracy, precision, recall, f1 = evaluate_model(test, label, predicted_values)
-#         print 'ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
-#         if f1 > best_f1:
-#             best_f1 = f1
-#             best_model = model
-#             best_params = clf
-#         print 'ENDED %s WITH PARAMETERS %s' % (model, clf)
 
-#         #threshold = np.sort(y_pred_probs)[::-1][int(.05*len(y_pred_probs))]
-#         #print threshold
-#         #print precision_at_k(test[label],y_pred_probs,.05)
-#         #plot_precision_recall_n(test[label],y_pred_probs,clf)
-
-#     print 'ENDED MODELING FOR', model
-     
-#     end_loop = time() - start_loop
-#     print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
-#     print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
-
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.ylim([0.0, 1.0])
+    plt.xlim([0.0, 1.0])
+    plt.title("Precision Recall Curves")
+    plt.savefig("p-r-curve-all.png")
+    plt.legend(loc="lower right")
+    #plt.show()
 
 
 def go(training_file):
@@ -276,36 +274,56 @@ def go(training_file):
     Run functions for specific data file
     '''
     
+    ####### EXPLORE AND VISUALIZE ALL DATA
     df = read_data(training_file)
     #print_statistics(df)
     #visualize_all(df)
-
-    ''' SPLIT TEST / TRAIN BEFORE IMPUTING '''
-
-    # impute dependents with mode
-    impute_missing_column(df, ['NumberOfDependents'], 'mode')
-
-    # impute MonthlyIncome with median
-    impute_missing_column(df, ['MonthlyIncome'], 'mean')
-
-    assert not df.isnull().values.any()
-
-    #log income
-    new_log_col = log_column(df, 'MonthlyIncome')
-
-
-    age_bins = [0] + range(20, 80, 5) + [120]
-    age_bucket = create_bins(df, 'age', age_bins)
-
-    income_bins = range(0, 10000, 1000) + [df['MonthlyIncome'].max()]
-    income_bucket = create_bins(df, 'MonthlyIncome', income_bins)
 
     #visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
     #visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
     #visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
 
-    scaled_income = scale_column(df, 'MonthlyIncome')
+    #####################################
+    # split train and test data
+    ''' K FOLD SPLIT '''
+    train, test = train_test_split(df, test_size = 0.2)
 
+    ##### IMPUTING AND TRANSFORMING TRAINING DATA
+    # impute TRAIN DATA dependents with mode
+    train_dependents_mode = impute_missing_column(train, ['NumberOfDependents'], 'mode')
+
+    # impute TRAIN DATA MonthlyIncome with median
+    train_income_median = impute_missing_column(train, ['MonthlyIncome'], 'median')
+
+    #log income
+    new_log_col = log_column(train, 'MonthlyIncome')
+
+    age_bins = [0] + range(20, 80, 5) + [120]
+    age_bucket = create_bins(train, 'age', age_bins)
+
+    income_bins = range(0, 10000, 1000) + [train['MonthlyIncome'].max()]
+    income_bucket = create_bins(train, 'MonthlyIncome', income_bins)
+
+    scaled_income = scale_column(train, 'MonthlyIncome')
+
+    assert not train.isnull().values.any()
+    #################################################
+
+    ########## IMPUTE AND TRANSFORM TEST DATA
+    impute_col_with_val(test, ['NumberOfDependents'], train_dependents_mode)
+    impute_col_with_val(test, ['MonthlyIncome'], train_income_median)
+
+    #log income
+    new_log_col = log_column(test, 'MonthlyIncome')
+    age_bucket = create_bins(test, 'age', age_bins)
+    income_bucket = create_bins(test, 'MonthlyIncome', income_bins)
+    scaled_income = scale_column(test, 'MonthlyIncome')
+
+    assert not test.isnull().values.any()
+
+    ###########################################
+
+    ######## GET FEATURES TO MODEL
     features = ['RevolvingUtilizationOfUnsecuredLines', 
                 'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome',
                 'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 
@@ -316,22 +334,19 @@ def go(training_file):
 
     label = 'SeriousDlqin2yrs'
 
-    assert not df.isnull().values.any()
-
-    # split train and test data
-    ''' K FOLD SPLIT '''
-    train, test = train_test_split(df, test_size = 0.2)
-
-    # create results-table csv
-
-
-    models_to_run=['RF']
+    models_to_run=['LR', 'NB', 'DT', 'RF']
     #,'LR','NB','DT', 'SVM', 'GB', 'RF'
 
-    best_model = ''
-    best_f1 = 0
-    best_params = ''
+    ''' VERY SLOW MODELS:  GB, SVM'''
+    
+    best_overall_model = ''
+    best_overall_f1 = 0
+    best_overall_params = ''
 
+    #use a dict to save the y_prob values of models for plotting
+    y_prob_dict = {}
+
+    # create results-table csv
     with open('results-table.csv', 'wb') as csvfile:
         w = csv.writer(csvfile, delimiter=',')
         w.writerow(['MODEL', 'PARAMETERS', 'ACCURACY', 'PRECISION', 'RECALL'])
@@ -341,6 +356,10 @@ def go(training_file):
             running_model = models_to_run[index]
             print 'STARTING MODELS FOR', running_model
             parameter_values = grid[running_model]
+
+            top_intra_model_f1 = 0
+            top_intra_model_params = ''
+
             for p in ParameterGrid(parameter_values):
                 clf.set_params(**p)
                 print 'STARTING %s WITH PARAMETERS %s' % (running_model, clf)
@@ -352,19 +371,34 @@ def go(training_file):
                 predicted_values = clf.predict(test[features])
                 accuracy, precision, recall, f1 = evaluate_model(test, label, predicted_values)
                 print 'ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
-                if f1 > best_f1:
-                    best_f1 = f1
-                    best_model = running_model
-                    best_params = clf
-                print 'ENDED %s WITH PARAMETERS %s' % (running_model, running_model)
-                plot_precision_recall_n(test[label],y_pred_probs,running_model, clf)
-                w.writerow([running_model, clf, features, accuracy, precision, recall])
-            print 'ENDED MODELING FOR', running_model
-         
-        end_loop = time() - start_loop
-        print 'LOOP THRU ALL MODELS TOOK %s' %end_loop
-        print 'BEST MODEL %s, BEST PARAMS %s, BEST F1 %s' % (best_model, best_params, best_f1)
+                
+                # find best parameters within a model and its y_pred to plot
+                if f1 > top_intra_model_f1:
+                    top_intra_model_f1 = f1
+                    top_intra_model_params = clf
+                    top_intra_model_y_pred = y_pred_probs
+                    y_prob_dict[running_model] = top_intra_model_y_pred
 
+                # find best model and params overall
+                if f1 > best_overall_f1:
+                    best_overall_f1 = f1
+                    best_overall_model = running_model
+                    best_overall_params = clf
+
+
+                print 'ENDED %s \n WITH PARAMETERS %s' % (running_model, clf)
+                w.writerow([running_model, clf, accuracy, precision, recall])
+            print 'ENDED MODELING FOR', running_model
+            # plot precision-recall for the best parameters of the running model
+            #plot_precision_recall(test[label],top_intra_model_y_pred,running_model, top_intra_model_params)
+
+         
+        loop_time_minutes = (time() - start_loop) / 60
+        print 'LOOP THRU ALL MODELS TOOK %s MINUTES' % loop_time_minutes
+        print 'BEST MODEL %s \n BEST PARAMS %s \n BEST F1 %s \n' % (best_overall_model, best_overall_params, best_overall_f1)
+
+    # plot precision-recall curve for all models (best parameters of each model)
+    plot_precision_recall_all_models(test[label], y_prob_dict)
 
     # Run the loop with multiprocessing pool to speeed up the process
     # p = Pool(5)
