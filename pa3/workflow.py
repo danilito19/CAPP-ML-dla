@@ -44,7 +44,8 @@ grid = {
 'NB' : {},
 'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
 'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1],'kernel':['linear']},
-'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20,50]},
+#change to SV linear
+'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20]},
 'KNN' :{'n_neighbors': [1,5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
@@ -334,7 +335,7 @@ def go(training_file):
 
     label = 'SeriousDlqin2yrs'
 
-    models_to_run=['LR', 'NB', 'DT', 'RF']
+    models_to_run=['LR']
     #,'LR','NB','DT', 'SVM', 'GB', 'RF'
 
     ''' VERY SLOW MODELS:  GB, SVM'''
@@ -345,6 +346,9 @@ def go(training_file):
 
     #use a dict to save the y_prob values of models for plotting
     y_prob_dict = {}
+
+    import IPython
+    IPython.embed()
 
     # create results-table csv
     with open('results-table.csv', 'wb') as csvfile:
@@ -389,8 +393,6 @@ def go(training_file):
                 print 'ENDED %s \n WITH PARAMETERS %s' % (running_model, clf)
                 w.writerow([running_model, clf, accuracy, precision, recall])
             print 'ENDED MODELING FOR', running_model
-            # plot precision-recall for the best parameters of the running model
-            #plot_precision_recall(test[label],top_intra_model_y_pred,running_model, top_intra_model_params)
 
          
         loop_time_minutes = (time() - start_loop) / 60
