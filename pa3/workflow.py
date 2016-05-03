@@ -28,13 +28,13 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 plt.rcParams["figure.figsize"] = [18.0, 8.0]
 
 
-clfs = {'RF': RandomForestClassifier(n_estimators=50, n_jobs=-1),
-    'LR': LogisticRegression(penalty='l1', C=1e5),
-    'SVM': svm.SVC(kernel='linear', probability=True, random_state=0),
+clfs = {'RF': RandomForestClassifier(n_estimators=50, n_jobs=-1, random_state=0),
+    'LR': LogisticRegression(random_state=0, n_jobs=-1),
+    'SVM': svm.LinearSVC(random_state=0, dual= False),
     'NB': GaussianNB(),
-    'DT': DecisionTreeClassifier(),
-    'KNN': KNeighborsClassifier(n_neighbors=3),
-    'GB': GradientBoostingClassifier(learning_rate=0.05, subsample=0.5, max_depth=6, n_estimators=10)
+    'DT': DecisionTreeClassifier(random_state = 0),
+    'KNN': KNeighborsClassifier(n_jobs = -1),
+    'GB': GradientBoostingClassifier(random_state = 0)
 
         }
 
@@ -43,10 +43,9 @@ grid = {
 'LR': { 'penalty': ['l1','l2'], 'C': [0.00001,0.0001,0.001,0.01,0.1,1,5]},
 'NB' : {},
 'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
-'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1],'kernel':['linear']},
-#change to SV linear
+'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1], 'penalty': ['l1', 'l2']},
 'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20]},
-'KNN' :{'n_neighbors': [1,5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
+'KNN' :{'n_neighbors': [1, 3, 5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
 def read_data(file_name):
@@ -223,6 +222,20 @@ def model_logistic(training_data, test_data, features, label):
 def evaluate_model(test_data, label, predicted_values):
     '''
     Compare the label of the test data to predicted values
+    and return accuracy, precision, recall, and f1 score.
+
+    '''
+    accuracy = accuracy_score(test_data[label], predicted_values) 
+    precision = precision_score(test_data[label], predicted_values) 
+    recall = recall_score(test_data[label], predicted_values) 
+    # f1 calculation is F1 = 2 * (precision * recall) / (precision + recall)
+    f1 = f1_score(test_data[label], predicted_values) 
+
+    return accuracy, precision, recall, f1
+
+def evaluate_model_threshold(test_data, label, predicted_values, threshold):
+    '''
+    Compare the label of the test data to predicted values
     and return an accuracy score.
     '''
     accuracy = accuracy_score(test_data[label], predicted_values) 
@@ -265,7 +278,7 @@ def plot_precision_recall_all_models(y_true, y_prob_dict):
     plt.ylim([0.0, 1.0])
     plt.xlim([0.0, 1.0])
     plt.title("Precision Recall Curves")
-    plt.savefig("p-r-curve-all.png")
+    plt.savefig("pr-recall.png")
     plt.legend(loc="lower right")
     #plt.show()
 
@@ -335,25 +348,19 @@ def go(training_file):
 
     label = 'SeriousDlqin2yrs'
 
-    models_to_run=['LR']
-    #,'LR','NB','DT', 'SVM', 'GB', 'RF'
-
-    ''' VERY SLOW MODELS:  GB, SVM'''
-    
+    #models_to_run=['LR','NB','DT', 'RF', 'SVM', 'GB']
+    models_to_run = ['LR', 'NB']
     best_overall_model = ''
-    best_overall_f1 = 0
+    best_overall_auc = 0
     best_overall_params = ''
 
     #use a dict to save the y_prob values of models for plotting
     y_prob_dict = {}
 
-    import IPython
-    IPython.embed()
-
     # create results-table csv
     with open('results-table.csv', 'wb') as csvfile:
         w = csv.writer(csvfile, delimiter=',')
-        w.writerow(['MODEL', 'PARAMETERS', 'ACCURACY', 'PRECISION', 'RECALL'])
+        w.writerow(['MODEL', 'PARAMETERS', 'ACCURACY', 'PRECISION', 'RECALL', 'AUC'])
 
         start_loop = time()
         for index,clf in enumerate([clfs[x] for x in models_to_run]):
@@ -361,52 +368,63 @@ def go(training_file):
             print 'STARTING MODELS FOR', running_model
             parameter_values = grid[running_model]
 
-            top_intra_model_f1 = 0
+            top_intra_model_auc = 0
             top_intra_model_params = ''
 
             for p in ParameterGrid(parameter_values):
                 clf.set_params(**p)
+
                 print 'STARTING %s WITH PARAMETERS %s' % (running_model, clf)
                 start = time()
                 clf.fit(train[features], train[label])
-                y_pred_probs = clf.predict_proba(test[features])[:,1] #second col only for class = 1
                 elapsed_time = time() - start
-                print '%s took %s seconds to fit and get proba' % (clf, elapsed_time)
+                print '%s took %s seconds to fit' % (clf, elapsed_time)
+
+                start = time()
                 predicted_values = clf.predict(test[features])
+                if hasattr(clf, 'predict_proba'):
+                    y_pred_probs = clf.predict_proba(test[features])[:,1] #second col only for class = 1
+                else:
+                    y_pred_probs = clf.decision_function(test[features])
+
+                elapsed_time = time() - start
+                print '%s took %s seconds to get predicted values and proba' % (clf, elapsed_time)
+
                 accuracy, precision, recall, f1 = evaluate_model(test, label, predicted_values)
-                print 'ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
-                
+                print 'METRICS USING PREDICTED VALUES:   ACCURACY: %s, PRECISION: %s, REACLL: %s, F1: %s' % (accuracy, precision, recall, f1)
+
+                precision_curve, recall_curve, pr_thresholds = precision_recall_curve(test[label], y_pred_probs)
+                precision = precision_curve[:-1]
+                recall = recall_curve[:-1]
+
+                AUC = auc(recall, precision)
+                print 'AUC SCORE', AUC
+
                 # find best parameters within a model and its y_pred to plot
-                if f1 > top_intra_model_f1:
-                    top_intra_model_f1 = f1
+                if AUC > top_intra_model_auc:
+                    top_intra_model_auc = AUC
                     top_intra_model_params = clf
                     top_intra_model_y_pred = y_pred_probs
                     y_prob_dict[running_model] = top_intra_model_y_pred
 
                 # find best model and params overall
-                if f1 > best_overall_f1:
-                    best_overall_f1 = f1
+                if AUC > best_overall_auc:
+                    best_overall_auc = AUC
                     best_overall_model = running_model
                     best_overall_params = clf
 
 
                 print 'ENDED %s \n WITH PARAMETERS %s' % (running_model, clf)
-                w.writerow([running_model, clf, accuracy, precision, recall])
+                w.writerow([running_model, clf, accuracy, precision, recall, AUC])
             print 'ENDED MODELING FOR', running_model
-
          
         loop_time_minutes = (time() - start_loop) / 60
         print 'LOOP THRU ALL MODELS TOOK %s MINUTES' % loop_time_minutes
-        print 'BEST MODEL %s \n BEST PARAMS %s \n BEST F1 %s \n' % (best_overall_model, best_overall_params, best_overall_f1)
+        print 'BEST MODEL %s \n BEST PARAMS %s \n BEST AUC %s \n' % (best_overall_model, best_overall_params, best_overall_auc)
 
-    # plot precision-recall curve for all models (best parameters of each model)
+    # plot precision-recall curve for all models (picking the best parameters of each model)
     plot_precision_recall_all_models(test[label], y_prob_dict)
 
-    # Run the loop with multiprocessing pool to speeed up the process
-    # p = Pool(5)
-    # f = partial(magic_loop, train, test, features, label)
-    # print p.map(f, models_to_run)
-    # p.close()
 
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
