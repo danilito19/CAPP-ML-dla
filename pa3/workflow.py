@@ -14,7 +14,7 @@ from sklearn.naive_bayes import GaussianNB, MultinomialNB, BernoulliNB
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import *
-from sklearn.cross_validation import train_test_split
+from sklearn.cross_validation import train_test_split, KFold
 from sklearn.preprocessing import *
 from sklearn.feature_selection import RFE
 from sklearn.grid_search import ParameterGrid
@@ -44,7 +44,7 @@ grid = {
 'NB' : {},
 'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
 'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1], 'penalty': ['l1', 'l2']},
-'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10]},
+'GB': {'n_estimators': [1,10,50], 'learning_rate' : [0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10]},
 'KNN' :{'n_neighbors': [1, 3, 5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
@@ -291,6 +291,8 @@ def go(training_file):
     
     ####### EXPLORE AND VISUALIZE ALL DATA
     df = read_data(training_file)
+    df = df[:1000]
+    
     #print_statistics(df)
     #visualize_all(df)
 
@@ -299,14 +301,19 @@ def go(training_file):
     #visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
 
     #####################################
-    # split train and test data
-    ''' K FOLD SPLIT '''
-    #kf = KFold(len(df), n_folds=3)
+    # split train and held-out test data
+    train_set, held_out = train_test_split(df, test_size = 0.2)
 
-    #for train, test in kfold: 
-    #print test
-    train, test = train_test_split(df, test_size = 0.2)
+    # use train data for k fold cross validation
+    kf = KFold(len(train_set), n_folds=3)
+    for train_i, test_i in kf: 
+        print len(test_i)
+        test = train_set[:len(test_i)]
+        train = train_set[:len(train_i)]
+        print train.shape
+        print test.shape
 
+    '''
     ##### IMPUTING AND TRANSFORMING TRAINING DATA
     # impute TRAIN DATA dependents with mode
     train_dependents_mode = impute_missing_column(train, ['NumberOfDependents'], 'mode')
@@ -401,6 +408,8 @@ def go(training_file):
                 precision_curve, recall_curve, pr_thresholds = precision_recall_curve(test[label], y_pred_probs)
                 precision = precision_curve[:-1]
                 recall = recall_curve[:-1]
+                print 'PRECISION', precision
+                print 'RECALL', recall
 
                 AUC = auc(recall, precision)
                 print 'AUC SCORE', AUC
@@ -430,9 +439,10 @@ def go(training_file):
         #report AUC for each fold, stdev
     # plot precision-recall curve for all models (picking the best parameters of each model)
     plot_precision_recall_all_models(test[label], y_prob_dict)
-
+    
     #get best kfold values, get avg AUC
-
+    #apply best of best models to held out 20 % data
+    '''
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
 
