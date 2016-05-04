@@ -283,85 +283,11 @@ def plot_precision_recall_all_models(y_true, y_prob_dict):
     plt.legend(loc="lower right")
     #plt.show()
 
-
-def go(training_file):
+def model_loop(models_to_run, train, test, features, label):
     '''
-    Run functions for specific data file
-    '''
-    
-    ####### EXPLORE AND VISUALIZE ALL DATA
-    df = read_data(training_file)
-    df = df[:1000]
-    
-    #print_statistics(df)
-    #visualize_all(df)
-
-    #visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
-    #visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
-    #visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
-
-    #####################################
-    # split train and held-out test data
-    train_set, held_out = train_test_split(df, test_size = 0.2)
-
-    # use train data for k fold cross validation
-    kf = KFold(len(train_set), n_folds=3)
-    for train_i, test_i in kf: 
-        print len(test_i)
-        test = train_set[:len(test_i)]
-        train = train_set[:len(train_i)]
-        print train.shape
-        print test.shape
 
     '''
-    ##### IMPUTING AND TRANSFORMING TRAINING DATA
-    # impute TRAIN DATA dependents with mode
-    train_dependents_mode = impute_missing_column(train, ['NumberOfDependents'], 'mode')
 
-    # impute TRAIN DATA MonthlyIncome with median
-    train_income_median = impute_missing_column(train, ['MonthlyIncome'], 'median')
-
-    #log income
-    new_log_col = log_column(train, 'MonthlyIncome')
-
-    age_bins = [0] + range(20, 80, 5) + [120]
-    age_bucket = create_bins(train, 'age', age_bins)
-
-    income_bins = range(0, 10000, 1000) + [train['MonthlyIncome'].max()]
-    income_bucket = create_bins(train, 'MonthlyIncome', income_bins)
-
-    scaled_income = scale_column(train, 'MonthlyIncome')
-
-    assert not train.isnull().values.any()
-    #################################################
-
-    ########## IMPUTE AND TRANSFORM TEST DATA
-    impute_col_with_val(test, ['NumberOfDependents'], train_dependents_mode)
-    impute_col_with_val(test, ['MonthlyIncome'], train_income_median)
-
-    #log income
-    new_log_col = log_column(test, 'MonthlyIncome')
-    age_bucket = create_bins(test, 'age', age_bins)
-    income_bucket = create_bins(test, 'MonthlyIncome', income_bins)
-    scaled_income = scale_column(test, 'MonthlyIncome')
-
-    assert not test.isnull().values.any()
-
-    ###########################################
-
-    ######## GET FEATURES TO MODEL
-    features = ['RevolvingUtilizationOfUnsecuredLines', 
-                'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome',
-                'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 
-                'NumberRealEstateLoansOrLines', 
-                'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
-
-    features = features + [new_log_col] + [age_bucket] + [income_bucket] + [scaled_income]
-
-    label = 'SeriousDlqin2yrs'
-
-    models_to_run=['LR','NB','DT', 'RF', 'SVM', 'GB']
-    #models_to_run = ['LR', 'NB']
     best_overall_model = ''
     best_overall_auc = 0
     best_overall_params = ''
@@ -374,7 +300,6 @@ def go(training_file):
         w = csv.writer(csvfile, delimiter=',')
         w.writerow(['MODEL', 'PARAMETERS', 'ACCURACY', 'PRECISION', 'RECALL', 'AUC'])
 
-        start_loop = time()
         for index,clf in enumerate([clfs[x] for x in models_to_run]):
             running_model = models_to_run[index]
             print 'STARTING MODELS FOR', running_model
@@ -427,22 +352,110 @@ def go(training_file):
                     best_overall_model = running_model
                     best_overall_params = clf
 
-
                 print 'ENDED %s \n WITH PARAMETERS %s' % (running_model, clf)
                 w.writerow([running_model, clf, accuracy, precision, recall, AUC])
-            print 'ENDED MODELING FOR', running_model
-         
-        loop_time_minutes = (time() - start_loop) / 60
-        print 'LOOP THRU ALL MODELS TOOK %s MINUTES' % loop_time_minutes
-        print 'BEST MODEL %s \n BEST PARAMS %s \n BEST AUC %s \n' % (best_overall_model, best_overall_params, best_overall_auc)
+        print 'ENDED MODELING FOR', running_model
 
-        #report AUC for each fold, stdev
+    return best_overall_model, best_overall_params, best_overall_auc, y_prob_dict
+
+def go(training_file):
+    '''
+    Run functions for specific data file
+    '''
+    
+    ####### EXPLORE AND VISUALIZE ALL DATA
+    df = read_data(training_file)
+    df = df[:1000]
+    
+    #print_statistics(df)
+    #visualize_all(df)
+
+    #visualize_by_group_mean(df, ['NumberOfDependents', 'SeriousDlqin2yrs'], 'NumberOfDependents')
+    #visualize_by_group_mean(df, [age_bucket, "SeriousDlqin2yrs"], age_bucket)
+    #visualize_by_group_mean(df, [income_bucket, "SeriousDlqin2yrs"], income_bucket)
+
+    #####################################
+    # split train and held-out test data
+    #train_set, held_out = train_test_split(df, test_size = 0.2)
+    train, test = train_test_split(df, test_size = 0.2)
+
+    # use train data for k fold cross validation
+    # kf = KFold(len(train_set), n_folds=3)
+    # for train_i, test_i in kf: 
+    #     print len(test_i)
+    #     test = train_set[:len(test_i)]
+    #     train = train_set[:len(train_i)]
+    #     print train.shape
+    #     print test.shape
+        # models_loop returns best model, best params, AUC
+        #save these, give bean and stdv 
+        #apply best model to held_out
+        #call evaluate and get acc, AUC, etc
+
+    
+    ##### IMPUTING AND TRANSFORMING TRAINING DATA
+    # impute TRAIN DATA dependents with mode
+    train_dependents_mode = impute_missing_column(train, ['NumberOfDependents'], 'mode')
+
+    # impute TRAIN DATA MonthlyIncome with median
+    train_income_median = impute_missing_column(train, ['MonthlyIncome'], 'median')
+
+    #log income
+    new_log_col = log_column(train, 'MonthlyIncome')
+
+    age_bins = [0] + range(20, 80, 5) + [120]
+    age_bucket = create_bins(train, 'age', age_bins)
+
+    income_bins = range(0, 10000, 1000) + [train['MonthlyIncome'].max()]
+    income_bucket = create_bins(train, 'MonthlyIncome', income_bins)
+
+    scaled_income = scale_column(train, 'MonthlyIncome')
+
+    assert not train.isnull().values.any()
+    #################################################
+
+    ########## IMPUTE AND TRANSFORM TEST DATA
+    impute_col_with_val(test, ['NumberOfDependents'], train_dependents_mode)
+    impute_col_with_val(test, ['MonthlyIncome'], train_income_median)
+
+    #log income
+    new_log_col = log_column(test, 'MonthlyIncome')
+    age_bucket = create_bins(test, 'age', age_bins)
+    income_bucket = create_bins(test, 'MonthlyIncome', income_bins)
+    scaled_income = scale_column(test, 'MonthlyIncome')
+
+    assert not test.isnull().values.any()
+
+    ###########################################
+
+    ######## GET FEATURES TO MODEL
+    features = ['RevolvingUtilizationOfUnsecuredLines', 
+                'age', 'NumberOfTime30-59DaysPastDueNotWorse', 'DebtRatio', 'MonthlyIncome',
+                'NumberOfOpenCreditLinesAndLoans', 'NumberOfTimes90DaysLate', 
+                'NumberRealEstateLoansOrLines', 
+                'NumberOfTime60-89DaysPastDueNotWorse', 'NumberOfDependents']
+
+    features = features + [new_log_col] + [age_bucket] + [income_bucket] + [scaled_income]
+
+    label = 'SeriousDlqin2yrs'
+
+    models_to_run=['LR','NB','DT', 'RF', 'SVM', 'GB']
+    #models_to_run = ['LR', 'NB']
+
+    start_loop = time()
+    best_overall_model, best_overall_params, best_overall_auc, y_prob_dict = model_loop(models_to_run, train, test, features, label)
+    loop_time_minutes = (time() - start_loop) / 60
+    print 'LOOP THRU ALL MODELS TOOK %s MINUTES' % loop_time_minutes
+
+    print 'BEST MODEL %s \n BEST PARAMS %s \n BEST AUC %s \n' % (best_overall_model, best_overall_params, best_overall_auc)
+
+    #report AUC for each fold, stdev
     # plot precision-recall curve for all models (picking the best parameters of each model)
     plot_precision_recall_all_models(test[label], y_prob_dict)
     
     #get best kfold values, get avg AUC
     #apply best of best models to held out 20 % data
-    '''
+    
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
 
