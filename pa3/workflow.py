@@ -44,7 +44,7 @@ grid = {
 'NB' : {},
 'DT': {'criterion': ['gini', 'entropy'], 'max_depth': [1,5,10,20,50], 'max_features': ['sqrt','log2'],'min_samples_split': [2,5,10]},
 'SVM' :{'C' :[0.00001,0.0001,0.001,0.01,0.1,1], 'penalty': ['l1', 'l2']},
-'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10,20]},
+'GB': {'n_estimators': [1,10,100], 'learning_rate' : [0.001,0.01,0.05,0.1],'subsample' : [0.1,0.5,1.0], 'max_depth': [1,3,5,10]},
 'KNN' :{'n_neighbors': [1, 3, 5,10,25,50,100],'weights': ['uniform','distance'],'algorithm': ['auto','ball_tree','kd_tree']}
        }
 
@@ -301,6 +301,10 @@ def go(training_file):
     #####################################
     # split train and test data
     ''' K FOLD SPLIT '''
+    #kf = KFold(len(df), n_folds=3)
+
+    #for train, test in kfold: 
+    #print test
     train, test = train_test_split(df, test_size = 0.2)
 
     ##### IMPUTING AND TRANSFORMING TRAINING DATA
@@ -349,8 +353,8 @@ def go(training_file):
 
     label = 'SeriousDlqin2yrs'
 
-    #models_to_run=['LR','NB','DT', 'RF', 'SVM', 'GB']
-    models_to_run = ['LR', 'NB']
+    models_to_run=['LR','NB','DT', 'RF', 'SVM', 'GB']
+    #models_to_run = ['LR', 'NB']
     best_overall_model = ''
     best_overall_auc = 0
     best_overall_params = ''
@@ -423,9 +427,11 @@ def go(training_file):
         print 'LOOP THRU ALL MODELS TOOK %s MINUTES' % loop_time_minutes
         print 'BEST MODEL %s \n BEST PARAMS %s \n BEST AUC %s \n' % (best_overall_model, best_overall_params, best_overall_auc)
 
+        #report AUC for each fold, stdev
     # plot precision-recall curve for all models (picking the best parameters of each model)
     plot_precision_recall_all_models(test[label], y_prob_dict)
 
+    #get best kfold values, get avg AUC
 
 if __name__=="__main__":
     instructions = '''Usage: python workflow.py training_file'''
