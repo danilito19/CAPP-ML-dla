@@ -1,0 +1,14 @@
+FINISHED RUNNING MODEL LR
+FINISHED RUNNING MODEL NB
+FINISHED RUNNING MODEL DT
+FINISHED RUNNING MODEL RF
+FINISHED RUNNING MODEL SVM
+LOOP THRU ALL MODELS TOOK 117.986302269 MINUTES
+BEST MODEL RF 
+ BEST PARAMS RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=75, max_features='log2', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=10,
+            min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=-1,
+            oob_score=False, random_state=0, verbose=0, warm_start=False) 
+ BEST AUC 0.2534876044 
+

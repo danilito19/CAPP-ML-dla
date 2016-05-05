@@ -1,0 +1,6 @@
+MODEL,PARAMETERS,ACCURACY,PRECISION,RECALL,AUC
+RF,"RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
+            max_depth=75, max_features='log2', max_leaf_nodes=None,
+            min_samples_leaf=1, min_samples_split=10,
+            min_weight_fraction_leaf=0.0, n_estimators=100, n_jobs=-1,
+            oob_score=False, random_state=0, verbose=0, warm_start=False)",0.93530000000000002,0.60600706713780916,0.16642406598738477,0.38052365115530362
