@@ -283,7 +283,6 @@ def plot_precision_recall_all_models(y_true, y_prob_dict, file_name):
         recall = recall_curve[:-1]
         plt.plot(recall, precision, label='%s' %model_name)
 
-
     plt.legend()
     plt.xlabel('Recall')
     plt.ylabel('Precision')
